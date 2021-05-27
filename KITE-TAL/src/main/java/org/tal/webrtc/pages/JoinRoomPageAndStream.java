@@ -30,6 +30,7 @@ public class JoinRoomPageAndStream extends BasePage {
     public void joinRoom(String roomId,String debugOption)throws KiteTestException {
         this.webDriver.get(MediasoupTest.apprtcURL);
         this.sendKeys(this.roomIdTextBox,roomId);
+        waitAround(2000);
         this.click(this.joinButton);
         waitAround(2000);
         this.click(this.createLStreamButton);

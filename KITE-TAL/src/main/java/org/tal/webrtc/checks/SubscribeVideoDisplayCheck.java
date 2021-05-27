@@ -4,6 +4,7 @@ import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.interfaces.Runner;
 import io.cosmosoftware.kite.report.Status;
 import io.cosmosoftware.kite.steps.TestCheck;
+import io.cosmosoftware.kite.util.TestUtils;
 import org.tal.webrtc.pages.O2oRTCPage;
 
 public class SubscribeVideoDisplayCheck extends TestCheck {
@@ -20,12 +21,20 @@ public class SubscribeVideoDisplayCheck extends TestCheck {
 
     @Override
     protected void step() throws KiteTestException {
-        logger.info("获取订阅视频播放控件");
-        String videoCheck=o2oRTCPage.subscribeVideoCheck();
-        if(!"video".equalsIgnoreCase(videoCheck)){
-            reporter.textAttachment(report,"订阅视频",videoCheck,"plain");
-            throw new KiteTestException("订阅视频"+videoCheck, Status.FAILED);
+        String videoCheck="uninit";
+        String audioLevel="uninit";
+        for(int elapsedTime=0;elapsedTime<this.checkTimeout;elapsedTime+=this.checkInterval){
+            logger.info("获取订阅视频播放控件");
+            videoCheck=o2oRTCPage.subscribeVideoCheck(1);
+            audioLevel=o2oRTCPage.getAudioLevel(1);
+            if(!"video".equalsIgnoreCase(videoCheck)){
+                TestUtils.waitAround(1000);
+                throw new KiteTestException("订阅视频状态为："+videoCheck, Status.FAILED);
+            }else{
+                return;
+            }
         }
+        reporter.textAttachment(report,"订阅视频状态为：",videoCheck,"plain");
     }
 
 }

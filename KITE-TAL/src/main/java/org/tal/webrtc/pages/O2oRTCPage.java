@@ -57,8 +57,8 @@ public class O2oRTCPage extends BasePage {
                 "var stream=streamI.next().value;" +
                 "if(stream){return stream.getAudioLevel()}else{return -1;}";
     }
-    public String subscribeVideoCheck() throws KiteTestException {
+    public String subscribeVideoCheck(int index) throws KiteTestException {
         waitUntilVisibilityOf(FirstSubscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
-        return TestUtils.videoCheck(webDriver,1);
+        return TestUtils.videoCheck(webDriver,index);
     }
 }
