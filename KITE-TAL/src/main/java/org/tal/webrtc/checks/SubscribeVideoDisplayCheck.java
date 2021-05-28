@@ -9,9 +9,10 @@ import org.tal.webrtc.pages.O2oRTCPage;
 
 public class SubscribeVideoDisplayCheck extends TestCheck {
     protected O2oRTCPage o2oRTCPage;
+
     public SubscribeVideoDisplayCheck(Runner runner) {
         super(runner);
-        o2oRTCPage=new O2oRTCPage(runner);
+        o2oRTCPage = new O2oRTCPage(runner);
     }
 
     @Override
@@ -21,20 +22,20 @@ public class SubscribeVideoDisplayCheck extends TestCheck {
 
     @Override
     protected void step() throws KiteTestException {
-        String videoCheck="uninit";
-        String audioLevel="uninit";
-        for(int elapsedTime=0;elapsedTime<this.checkTimeout;elapsedTime+=this.checkInterval){
+        String videoCheck = "uninit";
+        String audioLevel = "uninit";
+        for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
             logger.info("获取订阅视频播放控件");
-            videoCheck=o2oRTCPage.subscribeVideoCheck(1);
-            audioLevel=o2oRTCPage.getAudioLevel(1);
-            if(!"video".equalsIgnoreCase(videoCheck)){
-                TestUtils.waitAround(1000);
-                throw new KiteTestException("订阅视频状态为："+videoCheck, Status.FAILED);
-            }else{
+            videoCheck = o2oRTCPage.subscribeVideoCheck(1);
+            audioLevel = o2oRTCPage.getAudioLevel(1);
+            if (!"video".equalsIgnoreCase(videoCheck)) {
+                TestUtils.waitAround(2000);
+                throw new KiteTestException("订阅视频状态为：" + videoCheck, Status.FAILED);
+            } else {
                 return;
             }
         }
-        reporter.textAttachment(report,"订阅视频状态为：",videoCheck,"plain");
+        reporter.textAttachment(report, "订阅视频状态为：", videoCheck, "plain");
     }
 
 }

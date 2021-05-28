@@ -9,9 +9,10 @@ import org.tal.webrtc.pages.O2oRTCPage;
 
 public class PeerConnectionCheck extends TestCheck {
     private O2oRTCPage o2oRTCPage;
+
     public PeerConnectionCheck(Runner runner) {
         super(runner);
-        o2oRTCPage=new O2oRTCPage(runner);
+        o2oRTCPage = new O2oRTCPage(runner);
     }
 
     @Override
@@ -21,18 +22,18 @@ public class PeerConnectionCheck extends TestCheck {
 
     @Override
     protected void step() throws KiteTestException {
-        String iceState="";
-        for(int elapsedTime=0;elapsedTime<this.checkTimeout;elapsedTime+=this.checkInterval){
-            iceState=o2oRTCPage.getIceConnectionState();
-            if(iceState.equalsIgnoreCase("failed")){
+        String iceState = "";
+        for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
+            iceState = o2oRTCPage.getIceConnectionState();
+            if (iceState.equalsIgnoreCase("failed")) {
                 throw new KiteTestException("ice状态已经变为：'failed'", Status.FAILED);
             }
-            if(iceState.equalsIgnoreCase("connected")||iceState.equalsIgnoreCase("completed")){
+            if (iceState.equalsIgnoreCase("connected") || iceState.equalsIgnoreCase("completed")) {
                 return;
             }
             TestUtils.waitAround(this.checkInterval);
         }
-        throw new KiteTestException("获取ice状态超时："+this.checkTimeout+",ice状态一直为："+iceState,Status.FAILED);
+        throw new KiteTestException("获取ice状态超时：" + this.checkTimeout + ",ice状态一直为：" + iceState, Status.FAILED);
     }
 
 }

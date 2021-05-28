@@ -12,24 +12,25 @@ import static io.cosmosoftware.kite.util.TestUtils.waitAround;
 
 public class JoinRoomPageAndStream extends BasePage {
 
-    @FindBy(id="roomId")
+    @FindBy(id = "roomId")
     WebElement roomIdTextBox;
 
-    @FindBy(id="joinRoom")
+    @FindBy(id = "joinRoom")
     WebElement joinButton;
 
-    @FindBy(id="createLocalStream")
+    @FindBy(id = "createLocalStream")
     WebElement createLStreamButton;
 
-    @FindBy(id="publish")
+    @FindBy(id = "publish")
     WebElement publishButton;
 
     public JoinRoomPageAndStream(Runner runner) {
         super(runner);
     }
-    public void joinRoom(String roomId,String debugOption)throws KiteTestException {
+
+    public void joinRoom(String roomId, String debugOption) throws KiteTestException {
         this.webDriver.get(MediasoupTest.apprtcURL);
-        this.sendKeys(this.roomIdTextBox,roomId);
+        this.sendKeys(this.roomIdTextBox, roomId);
         waitAround(2000);
         this.click(this.joinButton);
         waitAround(2000);
@@ -39,6 +40,6 @@ public class JoinRoomPageAndStream extends BasePage {
         logger.info("本地推流成功");
         waitAround(1000);
         this.maximizeCurrentWindow();
-        executeJsScript(this.webDriver,"window.scrollTo(0, document.body.scrollHeight)");
+        executeJsScript(this.webDriver, "window.scrollTo(0, document.body.scrollHeight)");
     }
 }

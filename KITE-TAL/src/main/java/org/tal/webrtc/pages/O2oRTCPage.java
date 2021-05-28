@@ -17,29 +17,31 @@ public class O2oRTCPage extends BasePage {
         super(runner);
     }
 
-    public String getIceConnectionState()throws KiteTestException {
-        return (String) TestUtils.executeJsScript(this.webDriver,getIceConnectionStateScript());
+    public String getIceConnectionState() throws KiteTestException {
+        return (String) TestUtils.executeJsScript(this.webDriver, getIceConnectionStateScript());
     }
-    public String getIceConnectionStateScript(){
+
+    public String getIceConnectionStateScript() {
         return "var state;" +
                 "try{state=client._sendTransport._connectionState}catch(expection){}" +
                 "if(state){return state;}else{return 'unknow';}";
     }
 
-    public String getVideoState(String index){
+    public String getVideoState(int index) {
         return "var streamI=streamMap.keys();" +
                 "var i=0;" +
-                "while(i<"+index+"){" +
+                "while(i<" + index + "){" +
                 "    streamI.next();" +
                 "    i++;" +
                 "}" +
                 "var videoTrack=streamI.next().value.getVideoTrack()" +
                 "if(videoTrack){return videoTrack.enabled;}else{return 'unknow';}";
     }
-    public String getAudioState(String index){
+
+    public String getAudioState(int index) {
         return "var streamI=streamMap.keys();" +
                 "var i=0;" +
-                "while(i<"+index+"){" +
+                "while(i<" + index + "){" +
                 "    streamI.next();" +
                 "    i++;" +
                 "}" +
@@ -47,18 +49,19 @@ public class O2oRTCPage extends BasePage {
                 "if(videoTrack){return videoTrack.enabled;}else{return 'unknow';}";
     }
 
-    public String getAudioLevel(String index){
+    public String getAudioLevel(int index) {
         return "var streamI=streamMap.keys();" +
                 "var i=0;" +
-                "while(i<"+index+"){" +
+                "while(i<" + index + "){" +
                 "    streamI.next();" +
                 "    i++;" +
                 "}" +
                 "var stream=streamI.next().value;" +
                 "if(stream){return stream.getAudioLevel()}else{return -1;}";
     }
+
     public String subscribeVideoCheck(int index) throws KiteTestException {
         waitUntilVisibilityOf(FirstSubscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
-        return TestUtils.videoCheck(webDriver,index);
+        return TestUtils.videoCheck(webDriver, index);
     }
 }

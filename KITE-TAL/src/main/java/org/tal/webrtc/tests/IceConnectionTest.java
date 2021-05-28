@@ -14,7 +14,7 @@ public class IceConnectionTest extends MediasoupTest {
 
     @Override
     protected void populateTestSteps(TestRunner runner) {
-        JoinRoomStep joinRoomStep=new JoinRoomStep(runner);
+        JoinRoomStep joinRoomStep = new JoinRoomStep(runner);
 
         joinRoomStep.setRoomId("23982308");
         runner.addStep(joinRoomStep);
@@ -23,15 +23,15 @@ public class IceConnectionTest extends MediasoupTest {
         runner.addStep(new PeerConnectionCheck(runner));
         runner.addStep(new SubscribeVideoDisplayCheck(runner));
 
-        if(this.getStats()){
-            runner.addStep(new GetStatsStep(runner,this.getStatsConfig));
+        if (this.getStats()) {
+            runner.addStep(new GetStatsStep(runner, this.getStatsConfig));
         }
 
-        if(this.takeScreenshotForEachTest()){
+        if (this.takeScreenshotForEachTest()) {
             runner.addStep(new ScreenRecordStep(runner));
         }
 
-        if(WebDriverUtils.isChrome(runner.getWebDriver())){
+        if (WebDriverUtils.isChrome(runner.getWebDriver())) {
             runner.addStep(new WebRTCInternalsStep(runner));
         }
     }

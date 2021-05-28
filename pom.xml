@@ -92,5 +92,6 @@
     <module>KITE-Example-Test</module>
     <module>KITE-AppRTC-Test</module>
     <module>KITE-WPT-Test</module>
+    <module>KITE-TAL</module>
   </modules>
 </project>

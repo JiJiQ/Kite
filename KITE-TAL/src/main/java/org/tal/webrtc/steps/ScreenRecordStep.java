@@ -23,7 +23,7 @@ public class ScreenRecordStep extends TestStep {
 
     @Override
     protected void step() throws KiteTestException {
-        reporter.screenshotAttachment(report,"ScreenshotStep_"+timestamp(),saveScreenshotPNG(webDriver));
+        reporter.screenshotAttachment(report, "ScreenshotStep_" + timestamp(), saveScreenshotPNG(webDriver));
     }
 
 }
