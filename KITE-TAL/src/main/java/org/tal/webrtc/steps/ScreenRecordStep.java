@@ -9,16 +9,17 @@ import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 import static io.cosmosoftware.kite.util.ReportUtils.timestamp;
 
 public class ScreenRecordStep extends TestStep {
-
-    public ScreenRecordStep(Runner runner) {
+    String describe;
+    public ScreenRecordStep(Runner runner,String describe) {
         super(runner);
+        this.describe=describe;
         setStepPhase(StepPhase.ALL);
         setOptional(true);
     }
 
     @Override
     public String stepDescription() {
-        return "应该通过了,demo截图";
+        return this.describe;
     }
 
     @Override

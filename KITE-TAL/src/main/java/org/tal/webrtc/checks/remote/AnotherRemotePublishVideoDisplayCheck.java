@@ -1,24 +1,24 @@
-package org.tal.webrtc.checks;
+package org.tal.webrtc.checks.remote;
 
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.interfaces.Runner;
 import io.cosmosoftware.kite.report.Status;
 import io.cosmosoftware.kite.steps.TestCheck;
 import io.cosmosoftware.kite.util.TestUtils;
-import org.tal.webrtc.pages.remote.RemoteO2oRTCPage;
+import org.tal.webrtc.pages.remote.AnotherRemoteO2oRTCPage;
 
 import java.net.MalformedURLException;
 
 import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
-import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
+import static org.webrtc.kite.config.client.RemoteClient.anotherRemoteWebDriver;
 
-public class RemotePublishVideoDisplayCheck extends TestCheck {
-    RemoteO2oRTCPage remoteO2oRTCPage;
+public class AnotherRemotePublishVideoDisplayCheck extends TestCheck {
+    AnotherRemoteO2oRTCPage anotherRemoteO2oRTCPage;
 
-    public RemotePublishVideoDisplayCheck(Runner runner) {
+    public AnotherRemotePublishVideoDisplayCheck(Runner runner) {
         super(runner);
         try {
-            remoteO2oRTCPage=new RemoteO2oRTCPage(runner);
+            anotherRemoteO2oRTCPage=new AnotherRemoteO2oRTCPage(runner);
         } catch (MalformedURLException e) {
             logger.error(e.getMessage());
         }
@@ -30,7 +30,7 @@ public class RemotePublishVideoDisplayCheck extends TestCheck {
             String videoCheck = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取预览视频播放控件");
-                videoCheck = remoteO2oRTCPage.publicVideoCheck();
+                videoCheck = anotherRemoteO2oRTCPage.publicVideoCheck();
                 if (!"video".equalsIgnoreCase(videoCheck)) {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
@@ -41,7 +41,6 @@ public class RemotePublishVideoDisplayCheck extends TestCheck {
             }
             throw new KiteTestException("预览视频状态为：" + videoCheck, Status.FAILED);
         } catch (Exception e) {
-            remoteWebDriver.close();
             //force silent to false in case of error, so the failure appears in the report in all cases.
             try {
                 String screenshotName = "error_screenshot_" + this.getName();

@@ -12,6 +12,7 @@ import java.net.MalformedURLException;
 
 public class RemoteClient extends Client {
     public static WebDriver remoteWebDriver;
+    public static WebDriver anotherRemoteWebDriver;
     public RemoteClient(JsonObject jsonObject) {
         super(jsonObject);
     }
@@ -19,6 +20,20 @@ public class RemoteClient extends Client {
         try {
             remoteWebDriver=WebDriverFactory.createWebDriver(this, null, null, "");
             return remoteWebDriver;
+        } catch (Exception e) {
+            logger.error(ReportUtils.getStackTrace(e));
+            throw new KiteGridException(
+                    e.getClass().getSimpleName()
+                            + " creating webdriver for \n"
+                            + this.toString()
+                            + ":\n"
+                            + e.getLocalizedMessage());
+        }
+    }
+    public WebDriver createAnotherRemoteWebDriver()throws MalformedURLException, WebDriverException, KiteTestException, KiteGridException {
+        try {
+            anotherRemoteWebDriver=WebDriverFactory.createWebDriver(this, null, null, "");
+            return anotherRemoteWebDriver;
         } catch (Exception e) {
             logger.error(ReportUtils.getStackTrace(e));
             throw new KiteGridException(

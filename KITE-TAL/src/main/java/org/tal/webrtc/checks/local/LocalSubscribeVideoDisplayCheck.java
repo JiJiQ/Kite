@@ -1,4 +1,4 @@
-package org.tal.webrtc.checks;
+package org.tal.webrtc.checks.local;
 
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.interfaces.Runner;
@@ -8,7 +8,6 @@ import io.cosmosoftware.kite.util.TestUtils;
 import org.tal.webrtc.pages.local.LocalO2oRTCPage;
 
 import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
-import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
 
 public class LocalSubscribeVideoDisplayCheck extends TestCheck {
     protected LocalO2oRTCPage localO2oRTCPage;
@@ -40,7 +39,6 @@ public class LocalSubscribeVideoDisplayCheck extends TestCheck {
             }
             throw new KiteTestException("订阅流视频状态为：" + videoCheck, Status.FAILED);
         } catch (Exception e) {
-            remoteWebDriver.close();
             //force silent to false in case of error, so the failure appears in the report in all cases.
                 try {
                     String screenshotName = "error_screenshot_" + this.getName();

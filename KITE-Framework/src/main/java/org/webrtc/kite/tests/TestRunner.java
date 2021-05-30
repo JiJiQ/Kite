@@ -2,6 +2,7 @@ package org.webrtc.kite.tests;
 
 import static io.cosmosoftware.kite.util.ReportUtils.getStackTrace;
 import static io.cosmosoftware.kite.util.TestUtils.waitAround;
+import static org.webrtc.kite.config.client.RemoteClient.*;
 
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.interfaces.Runner;
@@ -126,7 +127,6 @@ public class TestRunner extends ArrayList<TestStep> implements Callable<Object>,
       report.addLabel("host", "N/A");
     }
   }
-
 
   /**
    * Super constructor for JsTestRunner, which does not create the webdriver,

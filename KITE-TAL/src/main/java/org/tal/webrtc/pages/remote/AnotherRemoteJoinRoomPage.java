@@ -11,9 +11,9 @@ import org.tal.webrtc.tests.TalTest;
 import java.net.MalformedURLException;
 
 import static io.cosmosoftware.kite.util.TestUtils.waitAround;
-import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
+import static org.webrtc.kite.config.client.RemoteClient.anotherRemoteWebDriver;
 
-public class RemoteJoinRoomPage extends RemoteBasePage {
+public class AnotherRemoteJoinRoomPage extends RemoteBasePage {
 
     @FindBy(id = "roomId")
     WebElement roomIdTextBox;
@@ -34,13 +34,13 @@ public class RemoteJoinRoomPage extends RemoteBasePage {
     WebElement publishButton;
 
 
-    public RemoteJoinRoomPage(Runner runner) throws MalformedURLException {
+    public AnotherRemoteJoinRoomPage(Runner runner) throws MalformedURLException {
         super(runner);
     }
 
     public void remoteJoinRoom(String roomId, String userId,String serverUrl,String debugOption) throws KiteTestException {
-        PageFactory.initElements(remoteWebDriver, this);
-        remoteWebDriver.get(TalTest.apprtcURL);
+        PageFactory.initElements(anotherRemoteWebDriver, this);
+        anotherRemoteWebDriver.get(TalTest.apprtcURL);
         waitAround(500);
         this.sendKeys(this.roomIdTextBox, roomId);
         this.sendKeys(this.userIdTextBox,userId);

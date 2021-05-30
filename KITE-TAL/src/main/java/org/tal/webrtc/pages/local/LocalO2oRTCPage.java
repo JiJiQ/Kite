@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LocalO2oRTCPage extends BasePage {
-
+    
     public LocalO2oRTCPage(Runner runner) {
         super(runner);
     }

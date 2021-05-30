@@ -6,6 +6,7 @@ import static io.cosmosoftware.kite.util.ReportUtils.timestamp;
 import static io.cosmosoftware.kite.util.TestUtils.readJsonFile;
 import static io.cosmosoftware.kite.util.TestUtils.waitAround;
 import static org.webrtc.kite.Utils.populateInfoFromNavigator;
+import static org.webrtc.kite.config.client.RemoteClient.anotherRemoteWebDriver;
 import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
 
 import io.cosmosoftware.kite.entities.Stage;
@@ -251,6 +252,12 @@ public abstract class KiteBaseTest extends ArrayList<TestRunner> implements Step
             remoteWebDriver.close();
           }
           remoteWebDriver.quit();
+          if (((RemoteWebDriver) anotherRemoteWebDriver).getCapabilities().getBrowserName()
+                    .equalsIgnoreCase("fennec")) {
+            anotherRemoteWebDriver.get("about:config");
+            anotherRemoteWebDriver.close();
+          }
+          anotherRemoteWebDriver.quit();
         }
         terminateStep.setStopTimestamp();
       }
