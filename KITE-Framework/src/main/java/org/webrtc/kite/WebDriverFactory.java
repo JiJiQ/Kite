@@ -184,7 +184,7 @@ public class WebDriverFactory {
    * @param testName name for individual test case
    * @return the capabilities for creating webdriver
    */
-  private static Capabilities createCapabilities(Client client, String testName, String id) {
+  public static Capabilities createCapabilities(Client client, String testName, String id) {
 
     MutableCapabilities capabilities;
     if (!client.isApp()) {

@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import org.openqa.selenium.WebDriver;
 import org.webrtc.kite.config.client.Client;
+import org.webrtc.kite.config.client.RemoteClient;
 import org.webrtc.kite.config.test.TestConfig;
 import org.webrtc.kite.exception.KiteGridException;
 
@@ -32,6 +33,7 @@ public class TestRunner extends ArrayList<TestStep> implements Callable<Object>,
   
   protected final KiteLogger logger;
   protected final Client client;
+  protected final RemoteClient remoteClient;
   protected final Reporter reporter;
   protected final TestConfig testConfig;
   protected int id;
@@ -48,9 +50,10 @@ public class TestRunner extends ArrayList<TestStep> implements Callable<Object>,
    * @param test   the test 
    * @param id        the id
    */
-  public TestRunner(Client client, KiteBaseTest test, int id)
+  public TestRunner(Client client,RemoteClient remoteClient,KiteBaseTest test, int id)
       throws IOException {
     this.client = client;
+    this.remoteClient = remoteClient;
     this.test = test;
     this.testConfig = test.testConfig;
     this.logger = testConfig.getLogger();
@@ -68,7 +71,7 @@ public class TestRunner extends ArrayList<TestStep> implements Callable<Object>,
     setInterval(test.getInterval(id));
     if (client != null) {
       // client is null for JsTestRunner since the webdriver and client are created in JS.
-      InitClientWebDriverStep initClient = new InitClientWebDriverStep(this, this.id, this.client, this.sessionData);
+      InitClientWebDriverStep initClient = new InitClientWebDriverStep(this, this.id, this.client, remoteClient,this.sessionData);
       initClient.setStepPhase(this.stepPhase);
       initClient.processTestStep(this.stepPhase, this.reports.get(stepPhase), this.testConfig.isLoadTest());
       this.webDriver = initClient.getWebDriver();
@@ -134,7 +137,7 @@ public class TestRunner extends ArrayList<TestStep> implements Callable<Object>,
    */
   protected TestRunner(KiteBaseTest test, int id)
       throws  IOException {
-    this(null, test, id);
+    this(null, null,test, id);
   }
 
   public boolean addStep(TestStep step) {

@@ -77,6 +77,7 @@ public class Configurator {
    */
   public void buildConfig()
       throws IOException, KiteInsufficientValueException, BadEntityException {
+    System.setProperty("config.file.path",configFilePath);
     this.jsonConfigObject = readJsonFile(configFilePath);
 
     this.name = jsonConfigObject.getString("name", "")  + " [" + timestamp() + "]" ;

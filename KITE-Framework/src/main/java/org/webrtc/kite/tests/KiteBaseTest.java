@@ -3,8 +3,10 @@ package org.webrtc.kite.tests;
 import static io.cosmosoftware.kite.entities.Timeouts.ONE_SECOND_INTERVAL;
 import static io.cosmosoftware.kite.util.ReportUtils.getStackTrace;
 import static io.cosmosoftware.kite.util.ReportUtils.timestamp;
+import static io.cosmosoftware.kite.util.TestUtils.readJsonFile;
 import static io.cosmosoftware.kite.util.TestUtils.waitAround;
 import static org.webrtc.kite.Utils.populateInfoFromNavigator;
+import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
 
 import io.cosmosoftware.kite.entities.Stage;
 import io.cosmosoftware.kite.exception.KiteTestException;
@@ -40,8 +42,11 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonValue;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.webrtc.kite.config.client.BrowserSpecs;
 import org.webrtc.kite.config.client.Client;
+import org.webrtc.kite.config.client.RemoteClient;
+import org.webrtc.kite.config.paas.Paas;
 import org.webrtc.kite.config.test.TestConfig;
 import org.webrtc.kite.config.test.Tuple;
 import org.webrtc.kite.exception.KiteGridException;
@@ -96,11 +101,14 @@ public abstract class KiteBaseTest extends ArrayList<TestRunner> implements Step
    */
   protected void createTestRunners() throws IOException, KiteTestException {
     try {
+      JsonObject configObject=readJsonFile(System.getProperty("config.file.path"));
+      RemoteClient remoteClient=new RemoteClient(configObject.getJsonObject("remoteClients"));
+      remoteClient.setPaas(new Paas(configObject.getJsonArray("grids").getJsonObject(0)));
       if (multiThread) {
         //creates the TestRunner in parallel
         List<TestRunnerCreator> creatorList = new ArrayList<>();
         for (int index = 0; index < this.tuple.size(); index++) {
-          creatorList.add(new TestRunnerCreator(this.tuple.get(index), this, isLoadTest ? (this.currentIteration + index) : index));
+          creatorList.add(new TestRunnerCreator(this.tuple.get(index), remoteClient,this, isLoadTest ? (this.currentIteration + index) : index));
         }
         ExecutorService executorService = Executors.newFixedThreadPool(creatorList.size());
         List<Future<TestRunner>> futureList = executorService.invokeAll(creatorList,
@@ -111,7 +119,7 @@ public abstract class KiteBaseTest extends ArrayList<TestRunner> implements Step
         }
       } else {
         for (int index = 0; index < this.tuple.size(); index++) {
-          this.add(new TestRunner(this.tuple.get(index), this, index));
+          this.add(new TestRunner(this.tuple.get(index), remoteClient,this, index));
         }
       }
       this.tupleSize = size();
@@ -191,7 +199,7 @@ public abstract class KiteBaseTest extends ArrayList<TestRunner> implements Step
     return fastRampUp;
   }
 
-  private void init(StepPhase stepPhase) throws KiteTestException {
+  protected void init(StepPhase stepPhase) throws KiteTestException {
     AllureStepReport initStep =
         new AllureStepReport("Filling out reports, handling payload, creating runners..");
     try {
@@ -237,8 +245,13 @@ public abstract class KiteBaseTest extends ArrayList<TestRunner> implements Step
         if (stepPhase.isLastPhase() && !jsTest) {
           logger.info("Terminating, quiting webdriver");
           WebDriverUtils.closeDrivers(this.tuple.getWebDrivers());
+          if (((RemoteWebDriver) remoteWebDriver).getCapabilities().getBrowserName()
+                  .equalsIgnoreCase("fennec")) {
+            remoteWebDriver.get("about:config");
+            remoteWebDriver.close();
+          }
+          remoteWebDriver.quit();
         }
-
         terminateStep.setStopTimestamp();
       }
 
@@ -626,7 +639,7 @@ public abstract class KiteBaseTest extends ArrayList<TestRunner> implements Step
   }
 
 
-  private void setStepPhaseToRunner(StepPhase stepPhase) {
+  protected void setStepPhaseToRunner(StepPhase stepPhase) {
     for (TestRunner runner : this) {
       runner.setStepPhase(stepPhase);
     }
@@ -772,7 +785,7 @@ public abstract class KiteBaseTest extends ArrayList<TestRunner> implements Step
     this.delayForClosing = delayForClosing;
   }
 
-  private void keepBrowsersAlive() {
+  protected void keepBrowsersAlive() {
     if (!this.hasWebdriverIssue() && this.delayForClosing > 0) {
       logger.info("Keeping the browsers alive for " + this.delayForClosing + " seconds..");
       for (int wait = 0; wait < delayForClosing; wait ++) {
