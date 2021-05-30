@@ -55,6 +55,6 @@ public class RemotePublishVideoDisplayCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证本地预览视频是否正常。";
+        return "验证推流端预览视频是否正常。";
     }
 }

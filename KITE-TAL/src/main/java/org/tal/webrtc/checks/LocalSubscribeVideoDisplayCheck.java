@@ -20,7 +20,7 @@ public class LocalSubscribeVideoDisplayCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证拉流视频是否正常播放。";
+        return "验证拉流端视频是否正常播放。";
     }
 
     @Override
