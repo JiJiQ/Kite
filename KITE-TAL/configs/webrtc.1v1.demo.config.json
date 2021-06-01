@@ -1,5 +1,5 @@
 {
-  "name": "webrtc 1v1 kick",
+  "name": "webrtc 1v1",
   "callable": true,
   "grids": [
     {
@@ -9,10 +9,10 @@
   ],
   "tests": [
     {
-      "name": "kick for simple server %ts",
+      "name": "1v1 for simple server %ts",
       "tupleSize": 1,
-      "description": "同一台服务器 1v1 互踢后推拉流互通",
-      "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
+      "description": "一台服务器 1v1 推拉流互通",
+      "testImpl": "org.tal.webrtc.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
         "url": "https://8-140-113-148.eaydu.com/index",
@@ -37,14 +37,8 @@
     }
   ],
   "clients": [
-    {
+   {
       "browserName": "chrome",
-      "platform": "localhost"
-    },{
-      "browserName": "firefox",
-      "platform": "localhost"
-    },{
-      "browserName": "safari",
       "platform": "localhost"
     }
   ],
