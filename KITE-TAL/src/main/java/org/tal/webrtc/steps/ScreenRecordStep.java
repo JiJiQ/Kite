@@ -4,6 +4,7 @@ import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.interfaces.Runner;
 import io.cosmosoftware.kite.steps.StepPhase;
 import io.cosmosoftware.kite.steps.TestStep;
+import io.cosmosoftware.kite.util.TestUtils;
 
 import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 import static io.cosmosoftware.kite.util.ReportUtils.timestamp;
@@ -24,6 +25,7 @@ public class ScreenRecordStep extends TestStep {
 
     @Override
     protected void step() throws KiteTestException {
+        TestUtils.waitAround(2000);
         reporter.screenshotAttachment(report, "ScreenshotStep_" + timestamp(), saveScreenshotPNG(webDriver));
     }
 

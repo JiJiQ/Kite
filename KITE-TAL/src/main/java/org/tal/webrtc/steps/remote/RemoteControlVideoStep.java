@@ -7,10 +7,10 @@ import org.webrtc.kite.tests.TestRunner;
 
 import java.net.MalformedURLException;
 
-public class RemoteMuteVideoStep extends TestStep {
+public class RemoteControlVideoStep extends TestStep {
     RemoteO2oRTCPage remoteO2oRTCPage;
 
-    public RemoteMuteVideoStep(TestRunner runner){
+    public RemoteControlVideoStep(TestRunner runner){
         super(runner);
         try {
             this.remoteO2oRTCPage=new RemoteO2oRTCPage(runner);

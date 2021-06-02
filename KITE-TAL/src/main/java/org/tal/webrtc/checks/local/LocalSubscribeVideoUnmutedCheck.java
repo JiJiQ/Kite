@@ -9,17 +9,17 @@ import org.tal.webrtc.pages.local.LocalO2oRTCPage;
 
 import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 
-public class LocalSubscribeVideoMutedCheck extends TestCheck {
+public class LocalSubscribeVideoUnmutedCheck extends TestCheck {
     protected LocalO2oRTCPage localO2oRTCPage;
 
-    public LocalSubscribeVideoMutedCheck(Runner runner) {
+    public LocalSubscribeVideoUnmutedCheck(Runner runner) {
         super(runner);
         localO2oRTCPage = new LocalO2oRTCPage(runner);
     }
 
     @Override
     public String stepDescription() {
-        return "验证拉流端视频是否是muted状态";
+        return "验证拉流端视频是否是unmuted状态";
     }
 
     @Override
@@ -32,7 +32,7 @@ public class LocalSubscribeVideoMutedCheck extends TestCheck {
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
                 videoPaused = localO2oRTCPage.getVideoState(1);
 
-                if (!videoPaused.equalsIgnoreCase("true" ) && !"freeze".equalsIgnoreCase(videoCheck)) {
+                if (!videoPaused.equalsIgnoreCase("false" ) && !"video".equalsIgnoreCase(videoCheck)) {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
                     logger.info("订阅流视频状态为：" + videoCheck);

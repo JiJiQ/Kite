@@ -12,7 +12,7 @@
       "name": "连接不同服务器mute视频 %ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
-      "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteVideoTest",
+      "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
         "url": "https://8-140-113-148.eaydu.com/index",

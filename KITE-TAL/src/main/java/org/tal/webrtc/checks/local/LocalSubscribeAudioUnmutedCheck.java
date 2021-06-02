@@ -9,39 +9,35 @@ import org.tal.webrtc.pages.local.LocalO2oRTCPage;
 
 import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 
-public class LocalSubscribeVideoMutedCheck extends TestCheck {
+public class LocalSubscribeAudioUnmutedCheck extends TestCheck {
     protected LocalO2oRTCPage localO2oRTCPage;
 
-    public LocalSubscribeVideoMutedCheck(Runner runner) {
+    public LocalSubscribeAudioUnmutedCheck(Runner runner) {
         super(runner);
         localO2oRTCPage = new LocalO2oRTCPage(runner);
     }
 
     @Override
     public String stepDescription() {
-        return "验证拉流端视频是否是muted状态";
+        return "验证拉流端音频是否是unmuted状态";
     }
 
     @Override
     protected void step() {
         try {
-            String videoCheck = "uninit";
-            String videoPaused = "uninit";
+            String audioPaused = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
-                logger.info("获取订阅视频播放控件");
-                videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
-                videoPaused = localO2oRTCPage.getVideoState(1);
+                logger.info("获取音频muted状态");
+                audioPaused = localO2oRTCPage.getAudioState(1);
 
-                if (!videoPaused.equalsIgnoreCase("true" ) && !"freeze".equalsIgnoreCase(videoCheck)) {
+                if (!audioPaused.equalsIgnoreCase("false" )) {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
-                    logger.info("订阅流视频状态为：" + videoCheck);
-                    reporter.textAttachment(report, "订阅视频状态为：",videoCheck, "plain");
-                    reporter.textAttachment(report, "订阅视频muted状态为：",videoPaused, "plain");
+                    reporter.textAttachment(report, "订阅音频muted状态为：",audioPaused, "plain");
                     return;
                 }
             }
-            throw new KiteTestException("订阅流视频状态为：" + videoCheck, Status.FAILED);
+            throw new KiteTestException("订阅流音频状态为：" + audioPaused, Status.FAILED);
         } catch (Exception e) {
             //force silent to false in case of error, so the failure appears in the report in all cases.
                 try {
