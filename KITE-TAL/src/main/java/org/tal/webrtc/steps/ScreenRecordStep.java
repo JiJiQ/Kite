@@ -27,6 +27,7 @@ public class ScreenRecordStep extends TestStep {
     protected void step() throws KiteTestException {
         TestUtils.waitAround(500);
         reporter.screenshotAttachment(report, "ScreenshotStep_" + timestamp(), saveScreenshotPNG(webDriver));
+        TestUtils.waitAround(3000);
     }
 
 }
