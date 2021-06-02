@@ -42,11 +42,9 @@
       "platform": "localhost"
     },{
       "browserName": "chrome",
-      "version": "89",
       "platform": "MAC"
     },{
       "browserName": "firefox",
-      "version": "87",
       "platform": "MAC"
     }
   ],
