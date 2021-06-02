@@ -9,7 +9,7 @@
   ],
   "tests": [
     {
-      "name": "互踢 非级联 8-140 %ts",
+      "name": "互踢 非级联 8-140-113-148 %ts",
       "tupleSize": 1,
       "description": "同一台服务器 1v1 互踢后推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
