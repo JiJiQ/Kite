@@ -30,6 +30,7 @@ public class LocalSubscribeVideoDisplayCheck extends TestCheck {
                 logger.info("获取订阅视频播放控件");
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
                 if (!"video".equalsIgnoreCase(videoCheck)) {
+                    localO2oRTCPage.clickPlay();
                     TestUtils.waitAround(this.checkInterval);
                 } else {
                     logger.info("订阅流视频状态为：" + videoCheck);

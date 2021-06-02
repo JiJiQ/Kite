@@ -12,7 +12,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LocalO2oRTCPage extends BasePage {
-    
+
+    @FindBy(className = "play")
+    WebElement playButton;
+
     public LocalO2oRTCPage(Runner runner) {
         super(runner);
     }
@@ -41,7 +44,6 @@ public class LocalO2oRTCPage extends BasePage {
     public String getVideoState(int index) throws KiteInteractionException {
         return String.valueOf(TestUtils.executeJsScript(this.webDriver,getVideoStateScripts(index)));
     }
-
 
     public String getAudioStateScripts(int index) {
         return "var streamI=streamMap.keys();" +
@@ -83,5 +85,9 @@ public class LocalO2oRTCPage extends BasePage {
         WebElement subscribeVideo=this.webDriver.findElement(By.xpath("/html[1]/body[1]/div["+divIndex+"]/div[1]/video[1]"));
         waitUntilVisibilityOf(subscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
         return TestUtils.videoCheck(webDriver, index);
+    }
+
+    public void clickPlay() throws KiteInteractionException {
+        this.click(playButton);
     }
 }
