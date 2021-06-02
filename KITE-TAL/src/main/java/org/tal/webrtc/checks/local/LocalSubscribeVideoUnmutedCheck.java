@@ -19,29 +19,35 @@ public class LocalSubscribeVideoUnmutedCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证拉流端视频是否是unmuted状态";
+        return "验证拉流端视频的muted是否为false";
     }
 
     @Override
     protected void step() {
         try {
             String videoCheck = "uninit";
-            String videoPaused = "uninit";
+            String VideoMuted = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
-                logger.info("获取订阅视频播放控件");
+                logger.info("获取订阅流视频状态和muted");
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
-                videoPaused = localO2oRTCPage.getVideoState(0);
+                VideoMuted = localO2oRTCPage.getVideoState(0);
 
-                if (!videoPaused.equalsIgnoreCase("false" ) && !"video".equalsIgnoreCase(videoCheck)) {
+                if (!"false".equalsIgnoreCase(VideoMuted) && !"video".equalsIgnoreCase(videoCheck)) {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
                     logger.info("订阅流视频状态为：" + videoCheck);
-                    reporter.textAttachment(report, "订阅视频状态为：",videoCheck, "plain");
-                    reporter.textAttachment(report, "订阅视频muted状态为：",videoPaused, "plain");
+                    logger.info("订阅视频muted为：" + VideoMuted);
+                    reporter.textAttachment(report, "订阅视频为：",videoCheck, "plain");
+                    reporter.textAttachment(report, "订阅视频muted为：",VideoMuted, "plain");
                     return;
                 }
             }
-            throw new KiteTestException("订阅流视频状态为：" + videoCheck, Status.FAILED);
+            if(!"video".equalsIgnoreCase(videoCheck)){
+                throw new KiteTestException("订阅流视频状态为：" + videoCheck, Status.FAILED);
+            }
+            if(!VideoMuted.equalsIgnoreCase("false" )){
+                throw new KiteTestException("订阅视频muted状态为："+VideoMuted,Status.FAILED);
+            }
         } catch (Exception e) {
             //force silent to false in case of error, so the failure appears in the report in all cases.
                 try {

@@ -19,25 +19,25 @@ public class LocalSubscribeAudioUnmutedCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证拉流端音频是否是unmuted状态";
+        return "验证拉流端音频的enabled是否为true";
     }
 
     @Override
     protected void step() {
         try {
-            String audioPaused = "uninit";
+            String audioEnabled = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
-                logger.info("获取音频muted状态");
-                audioPaused = localO2oRTCPage.getAudioState(0);
+                logger.info("获取订阅流音频enabled");
+                audioEnabled = localO2oRTCPage.getAudioState(0);
 
-                if (!audioPaused.equalsIgnoreCase("false" )) {
+                if (!"true".equalsIgnoreCase(audioEnabled)) {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
-                    reporter.textAttachment(report, "订阅音频muted状态为：",audioPaused, "plain");
+                    reporter.textAttachment(report, "订阅流音频enabled为：",audioEnabled, "plain");
                     return;
                 }
             }
-            throw new KiteTestException("订阅流音频状态为：" + audioPaused, Status.FAILED);
+            throw new KiteTestException("订阅流音频enabled为：" + audioEnabled, Status.FAILED);
         } catch (Exception e) {
             //force silent to false in case of error, so the failure appears in the report in all cases.
                 try {
