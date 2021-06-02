@@ -38,13 +38,15 @@
   ],
   "clients": [
    {
-      "browserName": "chrome",
-      "platform": "MAC"
+      "browserName": "safari",
+      "platform": "localhost"
     },{
       "browserName": "chrome",
+      "version": "89",
       "platform": "MAC"
     },{
       "browserName": "firefox",
+      "version": "87",
       "platform": "MAC"
     }
   ],
