@@ -42,15 +42,15 @@
       "platform": "localhost"
     },{
       "browserName": "chrome",
-      "platform": "MAC"
+      "platform": "localhost"
     },{
       "browserName": "firefox",
-      "platform": "MAC"
+      "platform": "localhost"
     }
   ],
   "remoteClients":
     {
       "browserName": "chrome",
-      "platform": "WINDOWS"
+      "platform": "localhost"
     }
 }
