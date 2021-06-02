@@ -35,9 +35,10 @@ public class RemoteO2oRTCPage extends RemoteBasePage {
                 "if(state){return state;}else{return 'unknow';}";
     }
 
-    public String publicVideoCheck() throws KiteTestException {
-        localVideo=remoteWebDriver.findElement(By.xpath("/html[1]/body[1]/div[8]/div[1]/video[1]"));
-        waitUntilVisibilityOf(localVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
-        return TestUtils.videoCheck(remoteWebDriver, 0);
+    public String subscribeVideoCheck(int index) throws KiteTestException {
+        int divIndex=8+index;
+        WebElement subscribeVideo=remoteWebDriver.findElement(By.xpath("/html[1]/body[1]/div["+divIndex+"]/div[1]/video[1]"));
+        waitUntilVisibilityOf(subscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
+        return TestUtils.videoCheck(remoteWebDriver, index);
     }
 }

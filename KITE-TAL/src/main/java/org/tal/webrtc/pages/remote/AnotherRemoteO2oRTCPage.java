@@ -12,6 +12,7 @@ import org.tal.webrtc.pages.RemoteBasePage;
 import java.net.MalformedURLException;
 
 import static org.webrtc.kite.config.client.RemoteClient.anotherRemoteWebDriver;
+import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
 
 public class AnotherRemoteO2oRTCPage extends RemoteBasePage {
 
@@ -34,9 +35,10 @@ public class AnotherRemoteO2oRTCPage extends RemoteBasePage {
                 "if(state){return state;}else{return 'unknow';}";
     }
 
-    public String publicVideoCheck() throws KiteTestException {
-        localVideo=anotherRemoteWebDriver.findElement(By.xpath("/html[1]/body[1]/div[8]/div[1]/video[1]"));
-        waitUntilVisibilityOf(localVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
-        return TestUtils.videoCheck(anotherRemoteWebDriver, 0);
+    public String subscribeVideoCheck(int index) throws KiteTestException {
+        int divIndex=8+index;
+        WebElement subscribeVideo=anotherRemoteWebDriver.findElement(By.xpath("/html[1]/body[1]/div["+divIndex+"]/div[1]/video[1]"));
+        waitUntilVisibilityOf(subscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
+        return TestUtils.videoCheck(anotherRemoteWebDriver, index);
     }
 }
