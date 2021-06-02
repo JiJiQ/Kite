@@ -40,8 +40,7 @@ public class WebRtc1v1Test extends TalTest {
             runner.addStep(new GetStatsStep(runner, this.getStatsConfig));
         }
 
-        ScreenRecordStep endScreen=new ScreenRecordStep(runner,"测试应该通过了，demo截图。");
-        runner.addStep(endScreen);
+        runner.addStep(new ScreenRecordStep(runner,"测试应该通过了，demo截图。"));
 
         if (WebDriverUtils.isChrome(runner.getWebDriver())) {
             runner.addStep(new WebRTCInternalsStep(runner));

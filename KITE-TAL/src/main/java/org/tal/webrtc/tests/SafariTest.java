@@ -13,7 +13,7 @@ import static io.cosmosoftware.kite.util.TestUtils.readJsonFile;
 public class SafariTest {
 
     public static void main(String[] args) throws Exception {
-        JsonObject configObject=readJsonFile("/Users/apple/Kite/KITE-TAL/configs/webrtc.1v1.simple.config.json");
+        JsonObject configObject=readJsonFile("/Users/apple/Kite/KITE-TAL/configs/webrtc.1v1.simple.json");
         URL url=new URL("http://localhost:4444/wd/hub");
         RemoteClient remoteClient=new RemoteClient(configObject.getJsonObject("remoteClients"));
 
