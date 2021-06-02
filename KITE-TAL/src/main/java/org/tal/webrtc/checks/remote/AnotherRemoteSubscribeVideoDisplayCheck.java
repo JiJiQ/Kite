@@ -29,17 +29,17 @@ public class AnotherRemoteSubscribeVideoDisplayCheck extends TestCheck {
         try {
             String videoCheck = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
-                logger.info("获取预览视频播放控件");
+                logger.info("another remote 获取拉流视频播放控件");
                 videoCheck = anotherRemoteO2oRTCPage.subscribeVideoCheck(1);
                 if (!"video".equalsIgnoreCase(videoCheck)) {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
-                    logger.info("预览视频状态为：" + videoCheck);
-                    reporter.textAttachment(report, "预览视频状态为：", videoCheck, "plain");
+                    logger.info("another remote 拉流视频状态为：" + videoCheck);
+                    reporter.textAttachment(report, "another remote 拉流视频状态为：", videoCheck, "plain");
                     return;
                 }
             }
-            throw new KiteTestException("预览视频状态为：" + videoCheck, Status.FAILED);
+            throw new KiteTestException("another remote 拉流视频状态为：" + videoCheck, Status.FAILED);
         } catch (Exception e) {
             //force silent to false in case of error, so the failure appears in the report in all cases.
             try {
