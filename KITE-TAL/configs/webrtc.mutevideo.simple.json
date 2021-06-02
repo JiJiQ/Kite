@@ -38,19 +38,13 @@
   ],
   "clients": [
    {
-      "browserName": "safari",
-      "platform": "localhost"
-    },{
       "browserName": "chrome",
-      "platform": "localhost"
-    },{
-      "browserName": "firefox",
       "platform": "localhost"
     }
   ],
   "remoteClients":
     {
       "browserName": "chrome",
-      "platform": "WINDOWS"
+      "platform": "localhost"
     }
 }
