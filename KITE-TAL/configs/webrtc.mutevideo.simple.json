@@ -51,6 +51,6 @@
   "remoteClients":
     {
       "browserName": "chrome",
-      "platform": "localhost"
+      "platform": "WINDOWS"
     }
 }
