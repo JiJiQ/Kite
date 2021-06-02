@@ -1,5 +1,5 @@
 {
-  "name": "webrtc 1v1 音视频互通自动化测试",
+  "name": "webrtc音视频互通测试",
   "callable": true,
   "grids": [
     {
@@ -9,7 +9,7 @@
   ],
   "tests": [
     {
-      "name": "连接相同服务器 %ts",
+      "name": "音视频互通测试 级联 8-140与112-126 %ts",
       "tupleSize": 1,
       "description": "跨服务器 1v1 推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1Test",
@@ -51,6 +51,6 @@
   "remoteClients":
     {
       "browserName": "chrome",
-      "platform": "localhost"
+      "platform": "WINDOWS"
     }
 }

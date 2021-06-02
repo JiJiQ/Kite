@@ -1,5 +1,5 @@
 {
-  "name": "webrtc 视频mute自动化测试",
+  "name": "webrtc音视频控制测试",
   "callable": true,
   "grids": [
     {
@@ -9,7 +9,7 @@
   ],
   "tests": [
     {
-      "name": "连接不同服务器mute视频 %ts",
+      "name": "音视频控制测试 级联 8-140与112-126 %ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
@@ -17,7 +17,7 @@
       "payload": {
         "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
-        "remoteServer": "8-140-113-148.eaydu.com",
+        "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,

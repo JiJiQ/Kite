@@ -1,5 +1,5 @@
 {
-  "name": "webrtc互踢场景自动化测试",
+  "name": "webrtc互踢场景测试",
   "callable": true,
   "grids": [
     {
@@ -9,7 +9,7 @@
   ],
   "tests": [
     {
-      "name": "连接相同服务器互踢 %ts",
+      "name": "互踢 非级联 8-140 %ts",
       "tupleSize": 1,
       "description": "同一台服务器 1v1 互踢后推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
@@ -51,6 +51,6 @@
   "remoteClients":
     {
       "browserName": "chrome",
-      "platform": "localhost"
+      "platform": "WINDOWS"
     }
 }
