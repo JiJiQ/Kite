@@ -10,7 +10,7 @@ import java.net.URL;
 
 import static io.cosmosoftware.kite.util.TestUtils.readJsonFile;
 
-public class SafariTest {
+public class SafariDebug {
 
     public static void main(String[] args) throws Exception {
         JsonObject configObject=readJsonFile("/Users/apple/Kite/KITE-TAL/configs/webrtc.1v1.simple.json");
