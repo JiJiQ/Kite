@@ -39,12 +39,18 @@
   "clients": [
    {
       "browserName": "chrome",
-      "platform": "localhost"
+      "platform": "MAC"
+    },{
+      "browserName": "chrome",
+      "platform": "MAC"
+    },{
+      "browserName": "firefox",
+      "platform": "MAC"
     }
   ],
   "remoteClients":
     {
       "browserName": "chrome",
-      "platform": "localhost"
+      "platform": "WINDOWS"
     }
 }
