@@ -40,6 +40,6 @@ public class WebRtcHalfTest extends TalTest {
         if (WebDriverUtils.isChrome(runner.getWebDriver())) {
             runner.addStep(new WebRTCInternalsStep(runner));
         }
-
+        runner.addStep(new ScreenRecordStep(runner,"测试应该通过了，demo截图。"));
     }
 }
