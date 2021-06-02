@@ -7,14 +7,12 @@ import io.cosmosoftware.kite.interfaces.Runner;
 import io.cosmosoftware.kite.pages.BasePage;
 import io.cosmosoftware.kite.util.TestUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LocalO2oRTCPage extends BasePage {
-
-    @FindBy(className = "play")
-    WebElement playButton;
 
     public LocalO2oRTCPage(Runner runner) {
         super(runner);
@@ -88,6 +86,11 @@ public class LocalO2oRTCPage extends BasePage {
     }
 
     public void clickPlay() throws KiteInteractionException {
-        this.click(playButton);
+        try {
+            WebElement playButton=this.webDriver.findElement(By.xpath("/html[1]/body[1]/div[9]/div[1]/div[5]/div[1]"));
+            playButton.click();
+        }catch (NoSuchElementException e){
+            logger.error(e.getMessage());
+        }
     }
 }
