@@ -27,7 +27,7 @@ public class LocalO2oRTCPage extends BasePage {
                 "if(state){return state;}else{return 'unknow';}";
     }
 
-    public String getVideoState(int index) {
+    public String getVideoStateScripts(int index) {
         return "var streamI=streamMap.keys();" +
                 "var i=0;" +
                 "while(i<" + index + "){" +
@@ -38,7 +38,12 @@ public class LocalO2oRTCPage extends BasePage {
                 "if(videoTrack){return videoTrack.enabled;}else{return 'unknow';}";
     }
 
-    public String getAudioState(int index) {
+    public String getVideoState(int index) throws KiteInteractionException {
+        return (String)TestUtils.executeJsScript(this.webDriver,getVideoStateScripts(index));
+    }
+
+
+    public String getAudioStateScripts(int index) {
         return "var streamI=streamMap.keys();" +
                 "var i=0;" +
                 "while(i<" + index + "){" +
@@ -49,6 +54,9 @@ public class LocalO2oRTCPage extends BasePage {
                 "if(videoTrack){return videoTrack.enabled;}else{return 'unknow';}";
     }
 
+    public String getAudioState(int index) throws KiteInteractionException {
+        return (String)TestUtils.executeJsScript(this.webDriver,getAudioStateScripts(index));
+    }
 
     public String getAudioLevelScript(int index){
         return "var streamI=streamMap.keys();" +
