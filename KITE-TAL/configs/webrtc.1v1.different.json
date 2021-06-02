@@ -1,5 +1,5 @@
 {
-  "name": "webrtc音视频互通测试",
+  "name": "测试环境webrtc音视频互通测试",
   "callable": true,
   "grids": [
     {
