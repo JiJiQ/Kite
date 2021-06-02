@@ -53,6 +53,6 @@ public class RemoteSubscribeVideoDisplayCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证remote推流端预览视频是否正常。";
+        return "验证remote推流端拉流视频是否正常。";
     }
 }
