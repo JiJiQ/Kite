@@ -3,7 +3,8 @@ package org.tal.webrtc.tests;
 import io.cosmosoftware.kite.steps.WebRTCInternalsStep;
 import io.cosmosoftware.kite.util.WebDriverUtils;
 import org.tal.webrtc.checks.local.LocalPeerConnectionCheck;
-import org.tal.webrtc.checks.remote.RemotePublishVideoDisplayCheck;
+import org.tal.webrtc.checks.remote.RemotePeerConnectionCheck;
+import org.tal.webrtc.checks.remote.RemoteSubscribeVideoDisplayCheck;
 import org.tal.webrtc.checks.local.LocalSubscribeVideoDisplayCheck;
 import org.tal.webrtc.steps.local.LocalJoinRoomStep;
 import org.tal.webrtc.steps.ScreenRecordStep;
@@ -31,8 +32,9 @@ public class WebRtc1v1Test extends TalTest {
         runner.addStep(localJoinRoomStep);
 
         runner.addStep(new LocalPeerConnectionCheck(runner));
-        runner.addStep(new RemotePublishVideoDisplayCheck(runner));
         runner.addStep(new LocalSubscribeVideoDisplayCheck(runner));
+        runner.addStep(new RemotePeerConnectionCheck(runner));
+        runner.addStep(new RemoteSubscribeVideoDisplayCheck(runner));
 
         if (this.getStats()) {
             runner.addStep(new GetStatsStep(runner, this.getStatsConfig));
