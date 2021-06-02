@@ -50,6 +50,6 @@ public class RemoteJoinRoomWaitStep extends TestStep {
         remoteJoinRoomPage.remoteJoinRoom(this.roomId != null ? this.roomId : "23982308",
                 this.remoteUserId!=null?this.remoteUserId:"239823082",
                 this.remoteServerUrl, this.debugOption != null ? this.debugOption : "");
-        TestUtils.waitAround(600000);
+        TestUtils.waitAround(6000);
     }
 }
