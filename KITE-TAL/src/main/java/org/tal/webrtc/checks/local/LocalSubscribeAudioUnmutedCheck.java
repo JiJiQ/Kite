@@ -28,7 +28,7 @@ public class LocalSubscribeAudioUnmutedCheck extends TestCheck {
             String audioPaused = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取音频muted状态");
-                audioPaused = localO2oRTCPage.getAudioState(1);
+                audioPaused = localO2oRTCPage.getAudioState(0);
 
                 if (!audioPaused.equalsIgnoreCase("false" )) {
                     TestUtils.waitAround(this.checkInterval);

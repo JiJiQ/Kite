@@ -35,7 +35,7 @@ public class LocalO2oRTCPage extends BasePage {
                 "    i++;" +
                 "}" +
                 "var videoTrack=streamI.next().value.getVideoTrack()" +
-                "if(videoTrack){return videoTrack.enabled;}else{return 'unknow';}";
+                "if(videoTrack){return videoTrack.muted;}else{return 'unknow';}";
     }
 
     public String getVideoState(int index) throws KiteInteractionException {
@@ -50,8 +50,8 @@ public class LocalO2oRTCPage extends BasePage {
                 "    streamI.next();" +
                 "    i++;" +
                 "}" +
-                "var videoTrack=streamI.next().value.getAudioTrack()" +
-                "if(videoTrack){return videoTrack.enabled;}else{return 'unknow';}";
+                "var audioTrack=streamI.next().value.getAudioTrack();" +
+                "if(audioTrack){return audioTrack.enabled;}else{return 'unknow';}";
     }
 
     public String getAudioState(int index) throws KiteInteractionException {

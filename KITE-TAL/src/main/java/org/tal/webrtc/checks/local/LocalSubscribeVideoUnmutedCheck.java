@@ -30,7 +30,7 @@ public class LocalSubscribeVideoUnmutedCheck extends TestCheck {
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取订阅视频播放控件");
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
-                videoPaused = localO2oRTCPage.getVideoState(1);
+                videoPaused = localO2oRTCPage.getVideoState(0);
 
                 if (!videoPaused.equalsIgnoreCase("false" ) && !"video".equalsIgnoreCase(videoCheck)) {
                     TestUtils.waitAround(this.checkInterval);
