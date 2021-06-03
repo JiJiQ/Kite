@@ -69,9 +69,11 @@ public class LocalJoinRoomPage extends BasePage {
             try {
                 remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/video[1]"));
                 waitUntilVisibilityOf(remoteVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
+                logger.info("远程客户端"+remoteUserId+"已推流，结束等待。");
+                break;
             }catch (NoSuchElementException e){
-                logger.info("远程客户端还未推流，等待1s。。。");
-                TestUtils.waitAround(1000);
+                logger.info("远程客户端还未推流，等待2s。。。");
+                TestUtils.waitAround(2000);
             }catch (KiteInteractionException e){
                 logger.error(e.getMessage());
             }
