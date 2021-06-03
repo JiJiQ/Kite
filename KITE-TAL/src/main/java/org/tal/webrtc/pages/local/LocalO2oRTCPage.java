@@ -101,10 +101,12 @@ public class LocalO2oRTCPage extends BasePage {
     }
 
     public void videoControl() throws KiteInteractionException {
+        TestUtils.waitAround(2000);
         this.click(localVideoControl);
         TestUtils.waitAround(2000);
     }
     public void audioControl() throws KiteInteractionException {
+        TestUtils.waitAround(2000);
         this.click(localAudioControl);
         TestUtils.waitAround(2000);
     }

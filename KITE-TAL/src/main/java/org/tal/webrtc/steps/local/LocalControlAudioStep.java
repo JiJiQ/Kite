@@ -22,6 +22,6 @@ public class LocalControlAudioStep extends TestStep {
 
     @Override
     public String stepDescription() {
-        return "local 点击音频控制按钮。";
+        return "local 点击音频控制按钮。请注意声音是否变化。";
     }
 }

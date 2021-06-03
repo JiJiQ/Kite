@@ -22,6 +22,6 @@ public class LocalControlVideoStep extends TestStep {
 
     @Override
     public String stepDescription() {
-        return "local 点击视频控制按钮。";
+        return "local 点击视频控制按钮。请注意声音是否变化";
     }
 }
