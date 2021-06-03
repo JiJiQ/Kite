@@ -14,6 +14,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class LocalO2oRTCPage extends BasePage {
 
+    @FindBy(xpath = "/html[1]/body[1]/div[8]/div[1]/div[3]/button[1]")
+    WebElement localVideoControl;
+
+    @FindBy(xpath = "/html[1]/body[1]/div[8]/div[1]/div[3]/button[2]")
+    WebElement localAudioControl;
+
     public LocalO2oRTCPage(Runner runner) {
         super(runner);
     }
@@ -79,18 +85,25 @@ public class LocalO2oRTCPage extends BasePage {
     }
 
     public String subscribeVideoCheck(int index) throws KiteTestException {
-        int divIndex=8+index;
-        WebElement subscribeVideo=this.webDriver.findElement(By.xpath("/html[1]/body[1]/div["+divIndex+"]/div[1]/video[1]"));
+        int divIndex=index;
+        WebElement subscribeVideo=this.webDriver.findElement(By.xpath("/html[1]/body[1]/div[9]/div["+divIndex+"]/video[1]"));
         waitUntilVisibilityOf(subscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
         return TestUtils.videoCheck(webDriver, index);
     }
 
-    public void clickPlay() throws KiteInteractionException {
+    public void clickPlay(String remoteUserId) throws KiteInteractionException {
         try {
-            WebElement playButton=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_2398230802']/div[5]/div[1]"));
+            WebElement playButton=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/div[5]/div[1]"));
             playButton.click();
         }catch (NoSuchElementException e){
             logger.error(e.getMessage());
         }
+    }
+
+    public void videoControl() throws KiteInteractionException {
+        this.click(localVideoControl);
+    }
+    public void audioControl() throws KiteInteractionException {
+        this.click(localAudioControl);
     }
 }

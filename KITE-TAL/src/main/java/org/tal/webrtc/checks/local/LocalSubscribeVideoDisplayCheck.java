@@ -11,9 +11,11 @@ import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 
 public class LocalSubscribeVideoDisplayCheck extends TestCheck {
     protected LocalO2oRTCPage localO2oRTCPage;
+    public String remoteUserId;
 
-    public LocalSubscribeVideoDisplayCheck(Runner runner) {
+    public LocalSubscribeVideoDisplayCheck(Runner runner,String remoteUserId) {
         super(runner);
+        this.remoteUserId=remoteUserId;
         localO2oRTCPage = new LocalO2oRTCPage(runner);
     }
 
@@ -28,7 +30,7 @@ public class LocalSubscribeVideoDisplayCheck extends TestCheck {
             String videoCheck = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取订阅视频播放控件");
-                localO2oRTCPage.clickPlay();
+                localO2oRTCPage.clickPlay(this.remoteUserId!=null?this.remoteUserId:"2398230802");
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
                 if (!"video".equalsIgnoreCase(videoCheck)) {
                     TestUtils.waitAround(this.checkInterval);

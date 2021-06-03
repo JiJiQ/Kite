@@ -1,5 +1,7 @@
 package org.tal.webrtc.pages.local;
 
+import io.cosmosoftware.kite.entities.Timeouts;
+import io.cosmosoftware.kite.exception.KiteInteractionException;
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.interfaces.Runner;
 import io.cosmosoftware.kite.pages.BasePage;
@@ -66,10 +68,12 @@ public class LocalJoinRoomPage extends BasePage {
             WebElement remoteVideo;
             try {
                 remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/video[1]"));
-
+                waitUntilVisibilityOf(remoteVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
             }catch (NoSuchElementException e){
                 logger.info("远程客户端还未推流，等待1s。。。");
                 TestUtils.waitAround(1000);
+            }catch (KiteInteractionException e){
+                logger.error(e.getMessage());
             }
         }
     }

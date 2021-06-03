@@ -23,30 +23,30 @@ public class WebRtc1v1KickTest extends TalTest {
         RemoteJoinRoomStep remoteJoinRoomStep = new RemoteJoinRoomStep(runner);
         RemoteKickStep remoteKickStep = new RemoteKickStep(runner);
 
-        remoteJoinRoomStep.setRoomId("23982308");
-        remoteJoinRoomStep.setUserId("239823082");
+        remoteJoinRoomStep.setRoomId(roomId);
+        remoteJoinRoomStep.setUserId(remoteUserId);
         remoteJoinRoomStep.setServer(remoteServer);
         runner.addStep(remoteJoinRoomStep);
 
-        localJoinRoomStep.setRoomId("23982308");
-        localJoinRoomStep.setUserId("239823081");
+        localJoinRoomStep.setRoomId(roomId);
+        localJoinRoomStep.setUserId(localUserId);
         localJoinRoomStep.setServer(localServer);
         runner.addStep(localJoinRoomStep);
 
         runner.addStep(new LocalPeerConnectionCheck(runner));
-        runner.addStep(new LocalSubscribeVideoDisplayCheck(runner));
+        runner.addStep(new LocalSubscribeVideoDisplayCheck(runner,remoteUserId));
         runner.addStep(new RemotePeerConnectionCheck(runner));
         runner.addStep(new RemoteSubscribeVideoDisplayCheck(runner));
 
-        remoteKickStep.setRoomId("23982308");
-        remoteKickStep.setUserId("239823082");
+        remoteKickStep.setRoomId(roomId);
+        remoteKickStep.setUserId(remoteUserId);
         remoteKickStep.setServer(remoteServer);
         runner.addStep(remoteKickStep);
 
         runner.addStep(new ScreenRecordStep(runner,"刚完成了互踢操作，demo截图。"));
 
         runner.addStep(new LocalPeerConnectionCheck(runner));
-        runner.addStep(new LocalSubscribeVideoDisplayCheck(runner));
+        runner.addStep(new LocalSubscribeVideoDisplayCheck(runner,remoteUserId));
         runner.addStep(new AnotherRemotePeerConnectionCheck(runner));
         runner.addStep(new AnotherRemoteSubscribeVideoDisplayCheck(runner));
 

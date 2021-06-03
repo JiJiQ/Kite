@@ -1,5 +1,5 @@
 {
-  "name": "webrtc半自动化测试",
+  "name": "webrtc线上环境半自动化测试",
   "callable": true,
   "grids": [
     {
@@ -9,15 +9,96 @@
   ],
   "tests": [
     {
-      "name": "与rtn客户端互通 %ts",
+      "name": "与rtn客户端互通 1-116-106-223 %ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtcHalfTest",
       "csvReport": true,
       "payload": {
         "url": "https://8-140-113-148.eaydu.com/index",
-        "localServer": "8-140-113-148.eaydu.com",
-        "remoteServer": "8-140-113-148.eaydu.com",
+        "localServer": "1-116-106-223.eaydu.com",
+        "remoteServer": "1-116-106-223.eaydu.com",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+    {
+      "name": "与rtn客户端互通 42-192-197-7 %ts",
+      "tupleSize": 1,
+      "description": "一台服务器 1v1 推拉流互通",
+      "testImpl": "org.tal.webrtc.tests.WebRtcHalfTest",
+      "csvReport": true,
+      "payload": {
+        "url": "https://8-140-113-148.eaydu.com/index",
+        "localServer": "42-192-197-7.eaydu.com",
+        "remoteServer": "42-192-197-7.eaydu.com",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+    {
+      "name": "与rtn客户端互通 82-157-61-199 %ts",
+      "tupleSize": 1,
+      "description": "一台服务器 1v1 推拉流互通",
+      "testImpl": "org.tal.webrtc.tests.WebRtcHalfTest",
+      "csvReport": true,
+      "payload": {
+        "url": "https://8-140-113-148.eaydu.com/index",
+        "localServer": "82-157-61-199.eaydu.com",
+        "remoteServer": "82-157-61-199.eaydu.com",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+    {
+      "name": "与rtn客户端互通 82-157-60-32 %ts",
+      "tupleSize": 1,
+      "description": "一台服务器 1v1 推拉流互通",
+      "testImpl": "org.tal.webrtc.tests.WebRtcHalfTest",
+      "csvReport": true,
+      "payload": {
+        "url": "https://8-140-113-148.eaydu.com/index",
+        "localServer": "82-157-60-32.eaydu.com",
+        "remoteServer": "82-157-60-32.eaydu.com",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -35,6 +116,7 @@
         }
       }
     }
+
   ],
   "clients": [
    {

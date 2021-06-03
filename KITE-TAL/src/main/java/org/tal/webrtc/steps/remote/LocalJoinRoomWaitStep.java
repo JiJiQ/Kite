@@ -11,8 +11,9 @@ import java.net.MalformedURLException;
 
 public class LocalJoinRoomWaitStep extends TestStep {
     protected String roomId;
+    protected String localUserId;
     protected String remoteUserId;
-    protected String remoteServerUrl;
+    protected String localServerUrl;
     protected LocalJoinRoomPage localJoinRoomPage;
     private String debugOption;
 
@@ -20,13 +21,16 @@ public class LocalJoinRoomWaitStep extends TestStep {
         this.roomId = roomId;
     }
 
-    public void setUserId(String remoteUserId){
-        this.remoteUserId=remoteUserId;
+    public void setUserId(String localUserId){
+        this.localUserId=localUserId;
     }
 
-    public void setServer(String remoteServerUrl){
-        this.remoteServerUrl=remoteServerUrl;
+    public void setRemoteUserId(String remoteUserId){this.remoteUserId=remoteUserId;};
+
+    public void setServer(String localServerUrl){
+        this.localServerUrl=localServerUrl;
     }
+
 
     public void setDebugOption(String debugOption) {
         this.debugOption = debugOption;
@@ -45,8 +49,8 @@ public class LocalJoinRoomWaitStep extends TestStep {
     @Override
     protected void step() throws KiteTestException {
         localJoinRoomPage.localJoinRoom(this.roomId != null ? this.roomId : "23982308",
-                this.remoteUserId!=null?this.remoteUserId:"239823082",
-                this.remoteServerUrl, this.debugOption != null ? this.debugOption : "");
-        localJoinRoomPage.waitRemoteVideo("01");
+                this.localUserId!=null?this.localUserId:"239823082",
+                this.localServerUrl, this.debugOption != null ? this.debugOption : "");
+        localJoinRoomPage.waitRemoteVideo(this.remoteUserId!=null?this.remoteUserId:"1001");
     }
 }
