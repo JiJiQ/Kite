@@ -87,7 +87,7 @@ public class LocalO2oRTCPage extends BasePage {
 
     public void clickPlay() throws KiteInteractionException {
         try {
-            WebElement playButton=this.webDriver.findElement(By.xpath("/html[1]/body[1]/div[9]/div[1]/div[5]/div[1]"));
+            WebElement playButton=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_2398230802']/div[5]/div[1]"));
             playButton.click();
         }catch (NoSuchElementException e){
             logger.error(e.getMessage());

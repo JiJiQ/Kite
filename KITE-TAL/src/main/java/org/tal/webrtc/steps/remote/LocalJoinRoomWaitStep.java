@@ -2,17 +2,18 @@ package org.tal.webrtc.steps.remote;
 
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.steps.TestStep;
-import io.cosmosoftware.kite.util.TestUtils;
+import org.openqa.selenium.WebElement;
+import org.tal.webrtc.pages.local.LocalJoinRoomPage;
 import org.tal.webrtc.pages.remote.RemoteJoinRoomPage;
 import org.webrtc.kite.tests.TestRunner;
 
 import java.net.MalformedURLException;
 
-public class RemoteJoinRoomWaitStep extends TestStep {
+public class LocalJoinRoomWaitStep extends TestStep {
     protected String roomId;
     protected String remoteUserId;
     protected String remoteServerUrl;
-    protected RemoteJoinRoomPage remoteJoinRoomPage;
+    protected LocalJoinRoomPage localJoinRoomPage;
     private String debugOption;
 
     public void setRoomId(String roomId) {
@@ -31,13 +32,9 @@ public class RemoteJoinRoomWaitStep extends TestStep {
         this.debugOption = debugOption;
     }
 
-    public RemoteJoinRoomWaitStep(TestRunner runner)   {
+    public LocalJoinRoomWaitStep(TestRunner runner)   {
         super(runner);
-        try {
-            this.remoteJoinRoomPage = new RemoteJoinRoomPage(runner);
-        }catch (MalformedURLException e){
-            logger.error(e.getMessage());
-        }
+        this.localJoinRoomPage = new LocalJoinRoomPage(runner);
     }
 
     @Override
@@ -47,9 +44,9 @@ public class RemoteJoinRoomWaitStep extends TestStep {
 
     @Override
     protected void step() throws KiteTestException {
-        remoteJoinRoomPage.remoteJoinRoom(this.roomId != null ? this.roomId : "23982308",
+        localJoinRoomPage.localJoinRoom(this.roomId != null ? this.roomId : "23982308",
                 this.remoteUserId!=null?this.remoteUserId:"239823082",
                 this.remoteServerUrl, this.debugOption != null ? this.debugOption : "");
-        TestUtils.waitAround(600000);
+        localJoinRoomPage.waitRemoteVideo("01");
     }
 }

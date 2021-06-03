@@ -2,17 +2,11 @@ package org.tal.webrtc.tests;
 
 import io.cosmosoftware.kite.steps.WebRTCInternalsStep;
 import io.cosmosoftware.kite.util.WebDriverUtils;
-import org.tal.webrtc.checks.local.LocalPeerConnectionCheck;
-import org.tal.webrtc.checks.local.LocalSubscribeVideoDisplayCheck;
 import org.tal.webrtc.checks.remote.RemotePeerConnectionCheck;
 import org.tal.webrtc.checks.remote.RemoteSubscribeVideoDisplayCheck;
 import org.tal.webrtc.steps.ScreenRecordStep;
-import org.tal.webrtc.steps.local.LocalJoinRoomStep;
 import org.tal.webrtc.steps.remote.RemoteControlAudioStep;
 import org.tal.webrtc.steps.remote.RemoteControlVideoStep;
-import org.tal.webrtc.steps.remote.RemoteJoinRoomStep;
-import org.tal.webrtc.steps.remote.RemoteJoinRoomWaitStep;
-import org.webrtc.kite.stats.GetStatsStep;
 import org.webrtc.kite.tests.TestRunner;
 
 

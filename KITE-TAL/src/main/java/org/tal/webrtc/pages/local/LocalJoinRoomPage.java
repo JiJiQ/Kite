@@ -3,7 +3,9 @@ package org.tal.webrtc.pages.local;
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.interfaces.Runner;
 import io.cosmosoftware.kite.pages.BasePage;
+import io.cosmosoftware.kite.util.TestUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.tal.webrtc.tests.TalTest;
@@ -56,5 +58,19 @@ public class LocalJoinRoomPage extends BasePage {
         executeJsScript(this.webDriver, "window.scrollTo(0, document.body.scrollHeight)");
 
 
+    }
+
+    public void waitRemoteVideo(String remoteUserId){
+        logger.info("等待远程客户端推流，请使用指定userid："+remoteUserId);
+        while (true){
+            WebElement remoteVideo;
+            try {
+                remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/video[1]"));
+
+            }catch (NoSuchElementException e){
+                logger.info("远程客户端还未推流，等待1s。。。");
+                TestUtils.waitAround(1000);
+            }
+        }
     }
 }
