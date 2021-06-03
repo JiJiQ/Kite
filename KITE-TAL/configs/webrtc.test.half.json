@@ -9,7 +9,7 @@
   ],
   "tests": [
     {
-      "name": "与rtn客户端互通 %ts",
+      "name": "与rtn客户端互通 8-140-113-148%ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtcHalfTest",
