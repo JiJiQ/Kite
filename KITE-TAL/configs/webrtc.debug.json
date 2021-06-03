@@ -68,12 +68,6 @@
    {
       "browserName": "safari",
       "platform": "localhost"
-    },{
-      "browserName": "chrome",
-      "platform": "localhost"
-    },{
-      "browserName": "firefox",
-      "platform": "localhost"
     }
   ],
   "remoteClients":
