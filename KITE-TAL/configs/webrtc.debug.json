@@ -67,6 +67,9 @@
   "clients": [
    {
       "browserName": "safari",
+      "platform": "MAC"
+    }, {
+      "browserName": "safari",
       "platform": "localhost"
     }
   ],
