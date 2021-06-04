@@ -1,5 +1,5 @@
 {
-  "name": "测试环境webrtc音视频互通测试",
+  "name": "调试",
   "callable": true,
   "grids": [
     {
@@ -68,9 +68,6 @@
    {
       "browserName": "safari",
       "platform": "MAC"
-    }, {
-      "browserName": "safari",
-      "platform": "localhost"
     }
   ],
   "remoteClients":
