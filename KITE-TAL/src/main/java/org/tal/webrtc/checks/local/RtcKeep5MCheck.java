@@ -34,12 +34,11 @@ public class RtcKeep5MCheck extends TestCheck {
         localO2oRTCPage.clickPlay(this.remoteUserId!=null?this.remoteUserId:"2398230802");
         for (int time=0;time<times;time++){
             try {
-                String localIceState = "uninit";
-                String remoteIceState = "uninit";
-                String localVideoCheck = "uninit";
-                String remoteVideoCheck = "uninit";
+                String localIceState;
+                String remoteIceState;
+                String localVideoCheck;
+                String remoteVideoCheck;
                 for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
-
                     localIceState = localO2oRTCPage.getIceConnectionState();
                     remoteIceState = remoteO2oRTCPage.getIceConnectionState();
                     localVideoCheck = localO2oRTCPage.subscribeVideoCheck(1);
@@ -68,6 +67,8 @@ public class RtcKeep5MCheck extends TestCheck {
                     }else{
                         break;
                     }
+                    localVideoCheck = "uninit";
+                    remoteVideoCheck = "uninit";
                     TestUtils.waitAround(this.checkInterval);
                 }
             } catch (Exception e) {
