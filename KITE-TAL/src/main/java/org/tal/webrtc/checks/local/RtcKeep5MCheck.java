@@ -70,11 +70,6 @@ public class RtcKeep5MCheck extends TestCheck {
                     }
                     TestUtils.waitAround(this.checkInterval);
                 }
-                throw new KiteTestException("超时：" + this.checkTimeout +
-                        ",localIceState：" + localIceState+
-                        ",remoteIceState：" + remoteIceState+
-                        ",localVideoCheck：" + localVideoCheck+
-                        ",remoteVideoCheck：" + remoteVideoCheck, Status.FAILED);
             } catch (Exception e) {
                 //force silent to false in case of error, so the failure appears in the report in all cases.
                 try {
