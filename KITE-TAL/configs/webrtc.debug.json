@@ -40,7 +40,7 @@
   "clients": [
    {
       "browserName": "safari",
-      "platform": "MAC"
+      "platform": "localhost"
     },{
       "browserName": "safari",
       "platform": "MAC"
