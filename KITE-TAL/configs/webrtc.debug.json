@@ -42,7 +42,7 @@
       "browserName": "safari",
       "platform": "MAC"
     },{
-      "browserName": "chrome",
+      "browserName": "safari",
       "platform": "MAC"
     }
   ],
