@@ -68,6 +68,9 @@
    {
       "browserName": "safari",
       "platform": "MAC"
+    },{
+      "browserName": "chrome",
+      "platform": "MAC"
     }
   ],
   "remoteClients":
