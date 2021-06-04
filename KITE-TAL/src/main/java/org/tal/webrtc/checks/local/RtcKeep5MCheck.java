@@ -31,6 +31,7 @@ public class RtcKeep5MCheck extends TestCheck {
     @Override
     protected void step() throws KiteTestException {
         int times = 60;
+        localO2oRTCPage.clickPlay(this.remoteUserId!=null?this.remoteUserId:"2398230802");
         for (int time=0;time<times;time++){
             try {
                 String localIceState = "uninit";
@@ -41,7 +42,6 @@ public class RtcKeep5MCheck extends TestCheck {
 
                     localIceState = localO2oRTCPage.getIceConnectionState();
                     remoteIceState = remoteO2oRTCPage.getIceConnectionState();
-                    localO2oRTCPage.clickPlay(this.remoteUserId!=null?this.remoteUserId:"2398230802");
                     localVideoCheck = localO2oRTCPage.subscribeVideoCheck(1);
                     remoteVideoCheck = remoteO2oRTCPage.subscribeVideoCheck(1);
 
