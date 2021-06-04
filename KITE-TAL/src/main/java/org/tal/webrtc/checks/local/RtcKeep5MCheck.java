@@ -81,6 +81,7 @@ public class RtcKeep5MCheck extends TestCheck {
                 reporter.processException(this.report, e, true);
             }
             TestUtils.waitAround(5000);
+            logger.info("time："+time*5+"s");
         }
     }
 
