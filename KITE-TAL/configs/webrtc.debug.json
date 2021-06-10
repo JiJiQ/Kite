@@ -9,15 +9,15 @@
   ],
   "tests": [
     {
-      "name": "音视频互通测试 级联 8-140-113-148与112-126-100-194 %ts",
+      "name": "rtn mute-unmute 视频 8-140-113-148%ts",
       "tupleSize": 1,
-      "description": "跨服务器 1v1 推拉流互通",
-      "testImpl": "org.tal.webrtc.tests.WebRtc1v1Keep5MTest",
+      "description": "rtn mute-unmute 视频",
+      "testImpl": "org.tal.webrtc.tests.WebRtcNativeVideoControlTest",
       "csvReport": true,
       "payload": {
         "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
-        "remoteServer": "112-126-100-194.eaydu.com",
+        "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -40,9 +40,6 @@
    {
       "browserName": "safari",
       "platform": "localhost"
-    },{
-      "browserName": "safari",
-      "platform": "MAC"
     }
   ],
   "remoteClients":
