@@ -38,7 +38,7 @@
   ],
   "clients": [
    {
-      "browserName": "safari",
+      "browserName": "chrome",
       "platform": "localhost"
     }
   ],
