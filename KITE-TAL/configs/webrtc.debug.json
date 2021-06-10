@@ -9,10 +9,10 @@
   ],
   "tests": [
     {
-      "name": "rtn mute-unmute 视频 8-140-113-148%ts",
+      "name": "音视频控制测试 非级联 8-140-113-148 %ts",
       "tupleSize": 1,
-      "description": "rtn mute-unmute 视频",
-      "testImpl": "org.tal.webrtc.tests.WebRtcNativeVideoControlTest",
+      "description": "一台服务器 1v1 推拉流互通",
+      "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
         "url": "https://112-126-100-194.eaydu.com/index",
@@ -38,7 +38,7 @@
   ],
   "clients": [
    {
-      "browserName": "chrome",
+      "browserName": "safari",
       "platform": "localhost"
     }
   ],
