@@ -12,7 +12,7 @@
       "name": "与rtn客户端互通 1-116-106-223 %ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
-      "testImpl": "org.tal.webrtc.tests.WebRtcHalfTest",
+      "testImpl": "org.tal.webrtc.tests.WebRtcNativeRtcTest",
       "csvReport": true,
       "payload": {
         "url": "https://112-126-100-194.eaydu.com/index",
@@ -116,7 +116,6 @@
         }
       }
     }
-
   ],
   "clients": [
    {
