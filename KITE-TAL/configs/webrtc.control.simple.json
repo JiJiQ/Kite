@@ -15,7 +15,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
