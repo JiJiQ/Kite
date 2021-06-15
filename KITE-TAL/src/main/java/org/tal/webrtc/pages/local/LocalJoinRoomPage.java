@@ -58,8 +58,6 @@ public class LocalJoinRoomPage extends BasePage {
         this.click(publishButton);
         waitAround(2000);
         executeJsScript(this.webDriver, "window.scrollTo(0, document.body.scrollHeight)");
-
-
     }
 
     public void waitRemoteVideo(String remoteUserId){

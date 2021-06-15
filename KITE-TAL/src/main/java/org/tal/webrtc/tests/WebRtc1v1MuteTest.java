@@ -16,15 +16,16 @@ public class WebRtc1v1MuteTest extends TalTest{
         LocalJoinRoomStep localJoinRoomStep = new LocalJoinRoomStep(runner);
         RemoteJoinRoomStep remoteJoinRoomStep = new RemoteJoinRoomStep(runner);
 
-        remoteJoinRoomStep.setRoomId(roomId);
-        remoteJoinRoomStep.setUserId(remoteUserId);
-        remoteJoinRoomStep.setServer(remoteServer);
-        runner.addStep(remoteJoinRoomStep);
-
+        //local先进，remote后进，否则会导致streamMap混乱
         localJoinRoomStep.setRoomId(roomId);
         localJoinRoomStep.setUserId(localUserId);
         localJoinRoomStep.setServer(localServer);
         runner.addStep(localJoinRoomStep);
+
+        remoteJoinRoomStep.setRoomId(roomId);
+        remoteJoinRoomStep.setUserId(remoteUserId);
+        remoteJoinRoomStep.setServer(remoteServer);
+        runner.addStep(remoteJoinRoomStep);
 
         runner.addStep(new LocalPeerConnectionCheck(runner));
         runner.addStep(new LocalSubscribeVideoDisplayCheck(runner,remoteUserId));
