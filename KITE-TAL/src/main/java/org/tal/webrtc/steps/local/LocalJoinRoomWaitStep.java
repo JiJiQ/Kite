@@ -1,13 +1,10 @@
-package org.tal.webrtc.steps.remote;
+package org.tal.webrtc.steps.local;
 
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.steps.TestStep;
-import org.openqa.selenium.WebElement;
 import org.tal.webrtc.pages.local.LocalJoinRoomPage;
-import org.tal.webrtc.pages.remote.RemoteJoinRoomPage;
 import org.webrtc.kite.tests.TestRunner;
 
-import java.net.MalformedURLException;
 
 public class LocalJoinRoomWaitStep extends TestStep {
     protected String roomId;
@@ -43,7 +40,7 @@ public class LocalJoinRoomWaitStep extends TestStep {
 
     @Override
     public String stepDescription() {
-        return "remote 打开demo，进入房间保持10分钟并推流：" + this.roomId;
+        return "local 打开demo，进入房间并推流：" + this.roomId;
     }
 
     @Override

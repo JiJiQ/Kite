@@ -4,7 +4,7 @@
   "grids": [
     {
       "type": "local",
-      "url": "http://10.25.144.166:4444/wd/hub"
+      "url": "http://10.73.85.60:4444/wd/hub"
     }
   ],
   "tests": [
@@ -15,7 +15,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,

@@ -37,6 +37,7 @@ public class RemoteSubscribeVideoDisplayCheck extends TestCheck {
                     reporter.textAttachment(report, "remote 拉流视频状态为：", videoCheck, "plain");
                     return;
                 }
+                videoCheck = "uninit";
             }
             throw new KiteTestException("remote 拉流视频状态为：" + videoCheck, Status.FAILED);
         } catch (Exception e) {

@@ -38,8 +38,8 @@ public class InitClientWebDriverStep extends TestStep {
     try {
       this.client.setName(this.client.getName() == null ? ("" + id) : ( id + "_" + this.client.getName())) ;
       logger.info("Creating web driver for " + client);
-      remoteClient.createWebDriver();
       remoteClient.createAnotherRemoteWebDriver();
+      remoteClient.createWebDriver();
       this.webDriver = client.createWebDriver(sessionData);
       if (sessionData != null && sessionData.containsKey(this.webDriver)) {
         Map<String, Object> clientSessionData = sessionData.get(this.webDriver);

@@ -4,7 +4,7 @@
   "grids": [
     {
       "type": "local",
-      "url": "http://10.25.144.166:4444/wd/hub"
+      "url": "http://10.73.85.60:4444/wd/hub"
     }
   ],
   "tests": [
@@ -15,7 +15,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -36,13 +36,68 @@
       }
     },
     {
+      "name": "音视频控制测试 非级联 8-140-113-148 %ts",
+      "tupleSize": 1,
+      "description": "一台服务器 1v1 推拉流互通",
+      "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
+      "csvReport": true,
+      "payload": {
+        "url": "https://112-126-100-194.eaydu.com/index",
+        "localServer": "8-140-113-148.eaydu.com",
+        "remoteServer": "8-140-113-148.eaydu.com",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+    {
+      "name": "互踢 非级联 8-140-113-148 %ts",
+      "tupleSize": 1,
+      "description": "同一台服务器 1v1 互踢后推拉流互通",
+      "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
+      "csvReport": true,
+      "payload": {
+        "url": "https://112-126-100-194.eaydu.com/index",
+        "localServer": "8-140-113-148eaydu.com",
+        "remoteServer": "8-140-113-148.eaydu.com",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+
+    {
       "name": "音视频互通测试 非级联 112-126-100-194 %ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "112-126-100-194.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -69,7 +124,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -91,40 +146,13 @@
     },
 
     {
-      "name": "音视频控制测试 非级联 8-140-113-148 %ts",
-      "tupleSize": 1,
-      "description": "一台服务器 1v1 推拉流互通",
-      "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
-      "csvReport": true,
-      "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
-        "localServer": "8-140-113-148.eaydu.com",
-        "remoteServer": "8-140-113-148.eaydu.com",
-        "takeScreenshotForEachTest": true,
-        "getStats": {
-          "enabled": false,
-          "statsCollectionTime": 2000,
-          "statsCollectionInterval": 2000,
-          "peerConnections": [
-            "stream.transport"
-          ],
-          "selectedStats": [
-            "inbound-rtp",
-            "outbound-rtp",
-            "candidate-pair",
-            "track"
-          ]
-        }
-      }
-    },
-    {
       "name": "音视频控制测试 非级联 112-126-100-194 %ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "112-126-100-194.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -151,7 +179,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "82-157-61-199.eaydu.com",
         "remoteServer": "82-157-60-32.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -173,40 +201,13 @@
     },
 
     {
-      "name": "互踢 非级联 8-140-113-148 %ts",
-      "tupleSize": 1,
-      "description": "同一台服务器 1v1 互踢后推拉流互通",
-      "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
-      "csvReport": true,
-      "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
-        "localServer": "8-140-113-148eaydu.com",
-        "remoteServer": "8-140-113-148.eaydu.com",
-        "takeScreenshotForEachTest": true,
-        "getStats": {
-          "enabled": false,
-          "statsCollectionTime": 2000,
-          "statsCollectionInterval": 2000,
-          "peerConnections": [
-            "stream.transport"
-          ],
-          "selectedStats": [
-            "inbound-rtp",
-            "outbound-rtp",
-            "candidate-pair",
-            "track"
-          ]
-        }
-      }
-    },
-    {
       "name": "互踢 非级联 112-126-100-194 %ts",
       "tupleSize": 1,
       "description": "同一台服务器 1v1 互踢后推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "112-126-100-194.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -233,7 +234,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
       "csvReport": true,
       "payload": {
-        "url": "https://8-140-113-148.eaydu.com/index",
+        "url": "https://112-126-100-194.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -264,6 +265,15 @@
     },{
       "browserName": "safari",
       "platform": "localhost"
+    },{
+      "browserName": "chrome",
+      "platform": "MAC"
+    },{
+      "browserName": "firefox",
+      "platform": "MAC"
+    },{
+      "browserName": "safari",
+      "platform": "MAC"
     }
   ],
   "remoteClients":

@@ -42,7 +42,7 @@ public class RemoteKickStep extends TestStep {
 
     @Override
     public String stepDescription() {
-        return "remote踢人 打开demo，进入房间并推流：" + this.roomId;
+        return "another remote踢人 打开demo，进入房间并推流：" + this.roomId;
     }
 
     @Override

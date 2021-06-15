@@ -39,6 +39,7 @@ public class LocalSubscribeVideoDisplayCheck extends TestCheck {
                     reporter.textAttachment(report, "订阅视频状态为：", videoCheck, "plain");
                     return;
                 }
+                videoCheck = "uninit";
             }
             throw new KiteTestException("订阅流视频状态为：" + videoCheck, Status.FAILED);
         } catch (Exception e) {
