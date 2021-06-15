@@ -41,9 +41,6 @@
       "browserName": "chrome",
       "platform": "localhost"
     },{
-      "browserName": "firefox",
-      "platform": "localhost"
-    },{
       "browserName": "safari",
       "platform": "localhost"
     }

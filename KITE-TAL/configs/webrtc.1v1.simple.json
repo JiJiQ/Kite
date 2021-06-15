@@ -43,9 +43,6 @@
     },{
       "browserName": "chrome",
       "platform": "localhost"
-    },{
-      "browserName": "firefox",
-      "platform": "localhost"
     }
   ],
   "remoteClients":
