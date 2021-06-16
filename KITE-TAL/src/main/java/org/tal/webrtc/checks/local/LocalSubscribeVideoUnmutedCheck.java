@@ -11,10 +11,11 @@ import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 
 public class LocalSubscribeVideoUnmutedCheck extends TestCheck {
     protected LocalO2oRTCPage localO2oRTCPage;
-
-    public LocalSubscribeVideoUnmutedCheck(Runner runner) {
+    int remoteIndex;
+    public LocalSubscribeVideoUnmutedCheck(Runner runner,int remoteIndex) {
         super(runner);
         localO2oRTCPage = new LocalO2oRTCPage(runner);
+        this.remoteIndex=remoteIndex;
     }
 
     @Override
@@ -30,7 +31,7 @@ public class LocalSubscribeVideoUnmutedCheck extends TestCheck {
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取订阅流视频状态和muted");
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
-                VideoMuted = localO2oRTCPage.getVideoState(1);
+                VideoMuted = localO2oRTCPage.getVideoState(remoteIndex);
 
                 if (!"false".equalsIgnoreCase(VideoMuted) && !"video".equalsIgnoreCase(videoCheck)) {
                     TestUtils.waitAround(this.checkInterval);

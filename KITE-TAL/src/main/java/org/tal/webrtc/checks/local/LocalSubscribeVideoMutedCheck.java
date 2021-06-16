@@ -11,10 +11,11 @@ import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 
 public class LocalSubscribeVideoMutedCheck extends TestCheck {
     protected LocalO2oRTCPage localO2oRTCPage;
-
-    public LocalSubscribeVideoMutedCheck(Runner runner) {
+    int remoteIndex;
+    public LocalSubscribeVideoMutedCheck(Runner runner,int remoteIndex) {
         super(runner);
         localO2oRTCPage = new LocalO2oRTCPage(runner);
+        this.remoteIndex=remoteIndex;
     }
 
     @Override

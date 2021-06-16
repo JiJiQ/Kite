@@ -52,6 +52,6 @@ public class RemoteJoinRoomPage extends RemoteBasePage {
         waitAround(2000);
         this.click(this.publishButton);
         logger.info("remote 推流成功");
-        waitAround(1000);
+        waitAround(2000);
     }
 }

@@ -11,10 +11,11 @@ import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 
 public class LocalSubscribeAudioMutedCheck extends TestCheck {
     protected LocalO2oRTCPage localO2oRTCPage;
-
-    public LocalSubscribeAudioMutedCheck(Runner runner) {
+    int remoteIndex;
+    public LocalSubscribeAudioMutedCheck(Runner runner,int remoteIndex) {
         super(runner);
         localO2oRTCPage = new LocalO2oRTCPage(runner);
+        this.remoteIndex=remoteIndex;
     }
 
     @Override
@@ -28,7 +29,7 @@ public class LocalSubscribeAudioMutedCheck extends TestCheck {
             String audioEnabled = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取订阅流音频enabled");
-                audioEnabled = localO2oRTCPage.getAudioState(1);
+                audioEnabled = localO2oRTCPage.getAudioState(remoteIndex);
 
                 if (!"false".equalsIgnoreCase(audioEnabled)) {
                     TestUtils.waitAround(this.checkInterval);

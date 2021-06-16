@@ -34,21 +34,21 @@ public class WebRtc1v1MuteTest extends TalTest{
 
         runner.addStep(new RemoteControlAudioStep(runner));
         runner.addStep(new ScreenRecordStep(runner,"remote操作了mute audio，demo截图"));
-        runner.addStep(new LocalSubscribeAudioMutedCheck(runner));
+        runner.addStep(new LocalSubscribeAudioMutedCheck(runner,1));
 
         runner.addStep(new RemoteControlAudioStep(runner));
         runner.addStep(new ScreenRecordStep(runner,"remote操作了unmute audio，demo截图"));
-        runner.addStep(new LocalSubscribeAudioUnmutedCheck(runner));
+        runner.addStep(new LocalSubscribeAudioUnmutedCheck(runner,1));
 
         runner.addStep(new RemoteControlVideoStep(runner));
         runner.addStep(new ScreenRecordStep(runner,"remote操作了mute video，demo截图。"));
-        runner.addStep(new LocalSubscribeVideoMutedCheck(runner));
+        runner.addStep(new LocalSubscribeVideoMutedCheck(runner,1));
 
         runner.addStep(new ScreenRecordStep(runner,"看不到订阅视频测试通过，demo截图。"));
 
         runner.addStep(new RemoteControlVideoStep(runner));
         runner.addStep(new ScreenRecordStep(runner,"remote操作了unmute video，demo截图。"));
-        runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner));
+        runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner,1));
         runner.addStep(new ScreenRecordStep(runner,"能订阅视频测试通过，demo截图。"));
     }
 }

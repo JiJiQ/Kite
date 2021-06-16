@@ -37,11 +37,11 @@ public class WebRtcNativeVideoControlTest extends TalTest {
 
         runner.addStep(localWaitNativeMuteVideoStep);
 
-        runner.addStep(new LocalSubscribeVideoMutedCheck(runner));
+        runner.addStep(new LocalSubscribeVideoMutedCheck(runner,1));
 
         runner.addStep(localWaitNativeUnMuteVideoStep);
 
-        runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner));
+        runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner,1));
 
         if (WebDriverUtils.isChrome(runner.getWebDriver())) {
             runner.addStep(new WebRTCInternalsStep(runner));
