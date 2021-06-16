@@ -1,5 +1,5 @@
 {
-  "name": "webrtc测试环境半自动化测试",
+  "name": "webrtc测试环境native音视频控制测试",
   "callable": true,
   "grids": [
     {
