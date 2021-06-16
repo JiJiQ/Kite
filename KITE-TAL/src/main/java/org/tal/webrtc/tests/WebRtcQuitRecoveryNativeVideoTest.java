@@ -2,6 +2,7 @@ package org.tal.webrtc.tests;
 
 import io.cosmosoftware.kite.steps.WebRTCInternalsStep;
 import io.cosmosoftware.kite.util.WebDriverUtils;
+import net.sf.cglib.core.Local;
 import org.tal.webrtc.checks.local.*;
 import org.tal.webrtc.steps.ScreenRecordStep;
 import org.tal.webrtc.steps.local.LocalJoinRoomStep;
@@ -15,6 +16,7 @@ public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
     @Override
     protected void populateTestSteps(TestRunner runner) {
 
+        LocalJoinRoomStep localJoinRoomStep=new LocalJoinRoomStep(runner);
         LocalJoinRoomWaitStep localJoinRoomWaitStep =
                 new LocalJoinRoomWaitStep(runner);
         LocalWaitNativeMuteVideoStep localWaitNativeMuteVideoStep =
@@ -23,7 +25,9 @@ public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
                 new LocalWaitNativeUnMuteVideoStep(runner);
 
         //local先进，remote后进，否则会导致streamMap混乱
-
+        localJoinRoomStep.setRoomId(roomId);
+        localJoinRoomStep.setUserId(localUserId);
+        localJoinRoomStep.setServer(localServer);
         localJoinRoomWaitStep.setRoomId(roomId);
         localJoinRoomWaitStep.setUserId(localUserId);
         localJoinRoomWaitStep.setServer(localServer);
