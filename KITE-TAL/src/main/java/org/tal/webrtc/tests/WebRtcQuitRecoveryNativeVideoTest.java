@@ -2,17 +2,15 @@ package org.tal.webrtc.tests;
 
 import io.cosmosoftware.kite.steps.WebRTCInternalsStep;
 import io.cosmosoftware.kite.util.WebDriverUtils;
-import net.sf.cglib.core.Local;
-import org.tal.webrtc.checks.local.LocalPeerConnectionCheck;
-import org.tal.webrtc.checks.local.LocalSubscribeVideoDisplayCheck;
-import org.tal.webrtc.checks.local.LocalSubscribeVideoMutedCheck;
-import org.tal.webrtc.checks.local.LocalSubscribeVideoUnmutedCheck;
+import org.tal.webrtc.checks.local.*;
 import org.tal.webrtc.steps.ScreenRecordStep;
-import org.tal.webrtc.steps.local.*;
+import org.tal.webrtc.steps.local.LocalJoinRoomStep;
+import org.tal.webrtc.steps.local.LocalJoinRoomWaitStep;
+import org.tal.webrtc.steps.local.LocalWaitNativeMuteVideoStep;
+import org.tal.webrtc.steps.local.LocalWaitNativeUnMuteVideoStep;
 import org.webrtc.kite.tests.TestRunner;
 
-
-public class WebRtcNativeVideoControlTest extends TalTest {
+public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
 
     @Override
     protected void populateTestSteps(TestRunner runner) {
@@ -36,12 +34,15 @@ public class WebRtcNativeVideoControlTest extends TalTest {
         runner.addStep(new LocalSubscribeVideoDisplayCheck(runner,rtnUserId));
 
         runner.addStep(localWaitNativeMuteVideoStep);
-
         runner.addStep(new LocalSubscribeVideoMutedCheck(runner,1));
         runner.addStep(new ScreenRecordStep(runner,"remote操作了mute audio，demo截图"));
-        runner.addStep(localWaitNativeUnMuteVideoStep);
 
-        runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner,1));
+        runner.addStep(new LocalJoinRoomStep(runner));
+        runner.addStep(new LocalSubscribeVideoMutedRejoinCheck(runner,0));//local stream刷新后remote stream的index为0
+        runner.addStep(new ScreenRecordStep(runner,"退出重进后看不到订阅视频测试通过，demo截图。"));
+
+        runner.addStep(localWaitNativeUnMuteVideoStep);
+        runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner,0));//local stream刷新后remote stream的index为0
         runner.addStep(new ScreenRecordStep(runner,"remote操作了unmute audio，demo截图"));
 
         if (WebDriverUtils.isChrome(runner.getWebDriver())) {
