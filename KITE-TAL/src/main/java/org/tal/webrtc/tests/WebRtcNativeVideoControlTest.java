@@ -24,6 +24,8 @@ public class WebRtcNativeVideoControlTest extends TalTest {
         LocalWaitNativeUnMuteVideoStep localWaitNativeUnMuteVideoStep =
                 new LocalWaitNativeUnMuteVideoStep(runner);
 
+        //local先进，remote后进，否则会导致streamMap混乱
+
         localJoinRoomWaitStep.setRoomId(roomId);
         localJoinRoomWaitStep.setUserId(localUserId);
         localJoinRoomWaitStep.setServer(localServer);
