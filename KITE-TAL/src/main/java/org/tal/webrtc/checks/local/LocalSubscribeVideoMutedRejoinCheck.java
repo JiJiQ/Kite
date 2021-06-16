@@ -9,10 +9,10 @@ import org.tal.webrtc.pages.local.LocalO2oRTCPage;
 
 import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
 
-public class LocalSubscribeVideoMutedCheck extends TestCheck {
+public class LocalSubscribeVideoMutedRejoinCheck extends TestCheck {
     protected LocalO2oRTCPage localO2oRTCPage;
     int remoteIndex;
-    public LocalSubscribeVideoMutedCheck(Runner runner,int remoteIndex) {
+    public LocalSubscribeVideoMutedRejoinCheck(Runner runner, int remoteIndex) {
         super(runner);
         localO2oRTCPage = new LocalO2oRTCPage(runner);
         this.remoteIndex=remoteIndex;
@@ -20,31 +20,23 @@ public class LocalSubscribeVideoMutedCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证拉流视频的muted是否为true";
+        return "退出重进后验证拉流视频的muted是否为true";
     }
 
     @Override
     protected void step() {
         try {
-            String videoCheck = "uninit";
             String VideoMuted = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取订阅流视频状态和muted");
-                videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
                 VideoMuted = localO2oRTCPage.getVideoState(1);
-                if (!"true".equalsIgnoreCase(VideoMuted) &&
-                        !"freeze".equalsIgnoreCase(videoCheck)) {
+                if (!"true".equalsIgnoreCase(VideoMuted)) {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
-                    logger.info("订阅流视频状态为：" + videoCheck);
                     logger.info("订阅流视频muted为：" + VideoMuted);
-                    reporter.textAttachment(report, "订阅视频状态为：",videoCheck, "plain");
                     reporter.textAttachment(report, "订阅视频muted为：",VideoMuted, "plain");
                     return;
                 }
-            }
-            if(!"freeze".equalsIgnoreCase(videoCheck)){
-                throw new KiteTestException("订阅流视频状态为：" + videoCheck, Status.FAILED);
             }
             if(!"true".equalsIgnoreCase(VideoMuted)){
                 throw new KiteTestException("订阅视频muted为："+VideoMuted,Status.FAILED);
