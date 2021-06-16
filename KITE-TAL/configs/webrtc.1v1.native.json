@@ -34,33 +34,6 @@
           ]
         }
       }
-    },
-    {
-      "name": "rtn mute-unmute 视频 8-140-113-148%ts",
-      "tupleSize": 1,
-      "description": "rtn mute-unmute 视频",
-      "testImpl": "org.tal.webrtc.tests.WebRtcNativeVideoControlTest",
-      "csvReport": true,
-      "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
-        "localServer": "8-140-113-148.eaydu.com",
-        "remoteServer": "8-140-113-148.eaydu.com",
-        "takeScreenshotForEachTest": true,
-        "getStats": {
-          "enabled": false,
-          "statsCollectionTime": 2000,
-          "statsCollectionInterval": 2000,
-          "peerConnections": [
-            "stream.transport"
-          ],
-          "selectedStats": [
-            "inbound-rtp",
-            "outbound-rtp",
-            "candidate-pair",
-            "track"
-          ]
-        }
-      }
     }
   ],
   "clients": [
