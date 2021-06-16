@@ -30,7 +30,7 @@ public class LocalSubscribeVideoMutedRejoinCheck extends TestCheck {
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取订阅流视频状态和muted");
                 VideoMuted = localO2oRTCPage.getVideoState(remoteIndex);
-                if (!"true".equalsIgnoreCase(VideoMuted)) {
+                if (!"true".equalsIgnoreCase(VideoMuted)&&!"unknow".equalsIgnoreCase(VideoMuted)) {
                     logger.error("订阅视频muted为："+VideoMuted);
                     TestUtils.waitAround(this.checkInterval);
                 } else {
