@@ -8,7 +8,6 @@
     }
   ],
   "tests": [
-,
     {
       "name": "native音视频状态恢复测试 非级联 8-140-113-148 %ts",
       "tupleSize": 1,
