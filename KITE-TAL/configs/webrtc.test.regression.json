@@ -176,9 +176,6 @@
     {
       "browserName": "chrome",
       "platform": "localhost"
-    },{
-      "browserName": "safari",
-      "platform": "localhost"
     }
   ],
   "remoteClients":
