@@ -18,7 +18,7 @@ public class LocalWaitNativeUnMuteVideoStep extends TestStep {
         String remoteVideoMuted="uninit";
         while (true){
             remoteVideoMuted=localO2oRTCPage.getVideoState(1);
-            if(!"true".equalsIgnoreCase(remoteVideoMuted)){
+            if(!"true".equalsIgnoreCase(remoteVideoMuted)&&!"unknow".equalsIgnoreCase(remoteVideoMuted)){
                 return;
             }else{
                 logger.info("remote 还未操作unmute视频，等待2s。");
