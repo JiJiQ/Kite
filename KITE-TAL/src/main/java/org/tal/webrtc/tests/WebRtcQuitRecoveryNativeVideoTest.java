@@ -41,7 +41,7 @@ public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
         runner.addStep(new LocalSubscribeVideoMutedCheck(runner,1));
         runner.addStep(new ScreenRecordStep(runner,"remote操作了mute video，demo截图"));
 
-        runner.addStep(new LocalJoinRoomStep(runner));
+        runner.addStep(localJoinRoomStep);
         runner.addStep(new LocalSubscribeVideoMutedRejoinCheck(runner,0));//local stream刷新后remote stream的index为0
         runner.addStep(new ScreenRecordStep(runner,"退出重进后看不到订阅视频测试通过，demo截图。"));
 
