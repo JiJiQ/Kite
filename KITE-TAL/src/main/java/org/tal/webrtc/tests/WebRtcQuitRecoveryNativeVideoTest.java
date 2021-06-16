@@ -35,7 +35,7 @@ public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
 
         runner.addStep(localWaitNativeMuteVideoStep);
         runner.addStep(new LocalSubscribeVideoMutedCheck(runner,1));
-        runner.addStep(new ScreenRecordStep(runner,"remote操作了mute audio，demo截图"));
+        runner.addStep(new ScreenRecordStep(runner,"remote操作了mute video，demo截图"));
 
         runner.addStep(new LocalJoinRoomStep(runner));
         runner.addStep(new LocalSubscribeVideoMutedRejoinCheck(runner,0));//local stream刷新后remote stream的index为0
@@ -43,7 +43,7 @@ public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
 
         runner.addStep(localWaitNativeUnMuteVideoStep);
         runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner,0));//local stream刷新后remote stream的index为0
-        runner.addStep(new ScreenRecordStep(runner,"remote操作了unmute audio，demo截图"));
+        runner.addStep(new ScreenRecordStep(runner,"remote操作了unmute video，demo截图"));
 
         if (WebDriverUtils.isChrome(runner.getWebDriver())) {
             runner.addStep(new WebRTCInternalsStep(runner));
