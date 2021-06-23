@@ -9,7 +9,7 @@
   ],
   "tests": [
     {
-    "name": "与rtn客户端互通 8-140-113-148%ts",
+    "name": "与native客户端互通 8-140-113-148%ts",
     "tupleSize": 1,
     "description": "与rtn客户端互通",
     "testImpl": "org.tal.webrtc.tests.WebRtcNativeRtcTest",
@@ -36,7 +36,7 @@
     }
   },
     {
-      "name": "rtn mute-unmute 视频 8-140-113-148%ts",
+      "name": "native mute-unmute 视频 8-140-113-148%ts",
       "tupleSize": 1,
       "description": "rtn mute-unmute 视频",
       "testImpl": "org.tal.webrtc.tests.WebRtcNativeVideoControlTest",
