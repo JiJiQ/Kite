@@ -368,12 +368,12 @@
   "clients": [
     {
       "browserName": "chrome",
-      "platform": "localhost"
+      "platform": "MAC"
     }
   ],
   "remoteClients":
   {
     "browserName": "chrome",
-    "platform": "MAC"
+    "platform": "WINDOWS"
   }
 }
