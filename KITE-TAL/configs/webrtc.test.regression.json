@@ -63,7 +63,7 @@
       }
     },
     {
-      "name": "native音视频状态恢复测试 非级联 8-140-113-148 %ts",
+      "name": "native音视频状态恢复测试 8-140-113-148 %ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
       "testImpl": "org.tal.webrtc.tests.WebRtcQuitRecoveryNativeVideoTest",
