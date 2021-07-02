@@ -59,6 +59,21 @@ public class LocalJoinRoomPage extends BasePage {
         waitAround(2000);
         executeJsScript(this.webDriver, "window.scrollTo(0, document.body.scrollHeight)");
     }
+    public void localJoinRoomNoPush(String roomId, String userId,String serverUrl,String debugOption) throws KiteTestException {
+        this.webDriver.get(TalTest.apprtcURL);
+        logger.info(this.webDriver);
+        waitAround(2000);
+        webDriver.manage().window().maximize();
+        this.sendKeys(roomIdTextBox,roomId);
+        this.sendKeys(userIdTextBox,userId);
+        this.sendKeys(serverTextBox,serverUrl);
+
+        waitAround(4000);
+        this.click(joinButton);
+        waitAround(1000);
+        this.webDriver.findElement(By.id("joinRoom")).click();
+        waitAround(2000);
+    }
 
     public void waitRemoteVideo(String remoteUserId){
         logger.info("看到这句话后remote再推流，不然会导致streamMap不可控。");
@@ -81,20 +96,16 @@ public class LocalJoinRoomPage extends BasePage {
     public void waitNoRemoteVideo(String remoteUserId){
         logger.info("确保这个用户不在房间，否则会导致stream map紊乱："+remoteUserId);
         while (true){
-            System.out.println("打点1。。。。。。");
             WebElement remoteVideo;
             try {
-                System.out.println("打点2。。。。。。");
                 remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/video[1]"));
                 waitUntilVisibilityOf(remoteVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
                 logger.info("远程客户端"+remoteUserId+"已推流。");
                 logger.info("远程客户端还没有退出房间，等待2s。。。");
                 TestUtils.waitAround(2000);
             }catch (NoSuchElementException e){
-                System.out.println("打点3。。。。。。");
                 break;
             }catch (Exception e){
-                System.out.println("打点4。。。。。。");
                 logger.error(e.getMessage());
             }
         }
