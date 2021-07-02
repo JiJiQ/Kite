@@ -104,7 +104,7 @@ public class LocalJoinRoomPage extends BasePage {
                 logger.info("远程客户端还没有退出房间，等待2s。。。");
                 TestUtils.waitAround(2000);
             }catch (NoSuchElementException e){
-                logger.info("远程客户端"+remoteUserId+"已停止推流。");
+                logger.info("远程客户端"+remoteUserId+"已停止推流。看到提示后再进房间推流。");
                 break;
             }catch (Exception e){
                 logger.error(e.getMessage());
