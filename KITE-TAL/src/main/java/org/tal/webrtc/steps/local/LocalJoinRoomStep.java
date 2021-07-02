@@ -40,7 +40,7 @@ public class LocalJoinRoomStep extends TestStep {
 
     @Override
     protected void step() throws KiteTestException {
-        localJoinRoomPage.localJoinRoom(this.roomId != null ? this.roomId : "23982308",
+      localJoinRoomPage.localJoinRoom(this.roomId != null ? this.roomId : "23982308",
                 this.localUserId!=null?this.localUserId:"239823082",
                 this.localServerUrl, this.debugOption != null ? this.debugOption : "");
         localJoinRoomPage.waitRemoteVideo("1001");
