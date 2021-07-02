@@ -78,4 +78,22 @@ public class LocalJoinRoomPage extends BasePage {
             }
         }
     }
+    public void waitNoRemoteVideo(String remoteUserId){
+        logger.info("确保这个用户不在房间，否则会导致stream map紊乱："+remoteUserId);
+        while (true){
+            WebElement remoteVideo;
+            try {
+                remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/video[1]"));
+                waitUntilVisibilityOf(remoteVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
+                logger.info("远程客户端"+remoteUserId+"已推流。");
+                logger.info("远程客户端还没有退出房间，等待2s。。。");
+                TestUtils.waitAround(2000);
+            }catch (NoSuchElementException e){
+                break;
+            }catch (KiteInteractionException e){
+                logger.error(e.getMessage());
+            }
+        }
+    }
+
 }
