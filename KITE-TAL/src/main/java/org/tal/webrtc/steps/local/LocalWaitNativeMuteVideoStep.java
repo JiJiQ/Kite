@@ -15,13 +15,13 @@ public class LocalWaitNativeMuteVideoStep extends TestStep {
     }
     @Override
     protected void step() throws KiteTestException {
-        String remoteVideoMuted="uninit";
+        String remoteVideoEnabled="uninit";
         while (true){
-            remoteVideoMuted=localO2oRTCPage.getVideoState(1);
-            if("true".equalsIgnoreCase(remoteVideoMuted)){
+            remoteVideoEnabled=localO2oRTCPage.getVideoState(1);
+            if("false".equalsIgnoreCase(remoteVideoEnabled)){
                 break;
             }else{
-                logger.info("remote 还未操作mute视频，等待2s。remoteVideoMuted："+remoteVideoMuted);
+                logger.info("remote 还未操作mute视频，等待2s。remoteVideoMuted："+remoteVideoEnabled);
                 TestUtils.waitAround(2000);
             }
         }
