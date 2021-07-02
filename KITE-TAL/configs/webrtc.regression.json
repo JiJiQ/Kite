@@ -1,5 +1,5 @@
 {
-  "name": "测试环境回归测试",
+  "name": "线上环境回归测试",
   "callable": true,
   "grids": [
     {
