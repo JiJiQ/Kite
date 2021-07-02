@@ -17,6 +17,7 @@ public class LocalWaitNativeUnMuteVideoStep extends TestStep {
     protected void step() throws KiteTestException {
         String remoteVideoEnabled="uninit";
         while (true){
+            //local 退出重进后，remote stream的索引是0
             remoteVideoEnabled=localO2oRTCPage.getVideoState(0);
             if(!"false".equalsIgnoreCase(remoteVideoEnabled)&&
                     !"unknow".equalsIgnoreCase(remoteVideoEnabled)&&
