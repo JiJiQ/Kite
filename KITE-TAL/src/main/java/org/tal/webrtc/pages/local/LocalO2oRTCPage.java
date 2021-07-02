@@ -45,6 +45,10 @@ public class LocalO2oRTCPage extends BasePage {
                 "if(videoTrack){return videoTrack.muted;}else{return 'unknow';}";
     }
 
+    public String getDownloadStreamScripts(String mp4Name)
+    {
+        return "";
+    }
     public String getVideoState(int index) throws KiteInteractionException {
         return String.valueOf(TestUtils.executeJsScript(this.webDriver,getVideoStateScripts(index)));
     }
