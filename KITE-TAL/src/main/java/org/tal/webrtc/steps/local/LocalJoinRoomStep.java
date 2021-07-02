@@ -43,6 +43,5 @@ public class LocalJoinRoomStep extends TestStep {
       localJoinRoomPage.localJoinRoom(this.roomId != null ? this.roomId : "23982308",
                 this.localUserId!=null?this.localUserId:"239823082",
                 this.localServerUrl, this.debugOption != null ? this.debugOption : "");
-        localJoinRoomPage.waitRemoteVideo("1001");
     }
 }
