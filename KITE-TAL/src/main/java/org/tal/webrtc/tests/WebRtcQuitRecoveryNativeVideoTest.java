@@ -5,10 +5,7 @@ import io.cosmosoftware.kite.util.WebDriverUtils;
 import net.sf.cglib.core.Local;
 import org.tal.webrtc.checks.local.*;
 import org.tal.webrtc.steps.ScreenRecordStep;
-import org.tal.webrtc.steps.local.LocalJoinRoomStep;
-import org.tal.webrtc.steps.local.LocalJoinRoomWaitStep;
-import org.tal.webrtc.steps.local.LocalWaitNativeMuteVideoStep;
-import org.tal.webrtc.steps.local.LocalWaitNativeUnMuteVideoStep;
+import org.tal.webrtc.steps.local.*;
 import org.webrtc.kite.tests.TestRunner;
 
 public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
@@ -21,8 +18,8 @@ public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
                 new LocalJoinRoomWaitStep(runner);
         LocalWaitNativeMuteVideoStep localWaitNativeMuteVideoStep =
                 new LocalWaitNativeMuteVideoStep(runner);
-        LocalWaitNativeUnMuteVideoStep localWaitNativeUnMuteVideoStep =
-                new LocalWaitNativeUnMuteVideoStep(runner);
+        LocalRejoinWaitNativeUnMuteVideoStep localRejoinWaitNativeUnMuteVideoStep =
+                new LocalRejoinWaitNativeUnMuteVideoStep(runner);
 
         //local先进，remote后进，否则会导致streamMap混乱
         localJoinRoomStep.setRoomId(roomId);
@@ -45,7 +42,7 @@ public class WebRtcQuitRecoveryNativeVideoTest extends TalTest {
         runner.addStep(new LocalSubscribeVideoMutedRejoinCheck(runner,0));//local stream刷新后remote stream的index为0
         runner.addStep(new ScreenRecordStep(runner,"退出重进后看不到订阅视频测试通过，demo截图。"));
 
-        runner.addStep(localWaitNativeUnMuteVideoStep);
+        runner.addStep(localRejoinWaitNativeUnMuteVideoStep);
         runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner,0));//local stream刷新后remote stream的index为0
         runner.addStep(new ScreenRecordStep(runner,"remote操作了unmute video，demo截图"));
 
