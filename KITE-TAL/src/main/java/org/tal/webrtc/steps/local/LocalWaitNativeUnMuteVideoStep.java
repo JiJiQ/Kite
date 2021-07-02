@@ -21,6 +21,7 @@ public class LocalWaitNativeUnMuteVideoStep extends TestStep {
             if(!"false".equalsIgnoreCase(remoteVideoEnabled)&&
                     !"unknow".equalsIgnoreCase(remoteVideoEnabled)&&
                     !"uninit".equalsIgnoreCase(remoteVideoEnabled)){
+                logger.info("remote 操作了unmute视频，remoteVideoEnabled："+remoteVideoEnabled);
                 return;
             }else{
                 logger.info("remote 还未操作unmute视频，等待2s。remoteVideoEnabled："+remoteVideoEnabled);
