@@ -20,34 +20,34 @@ public class LocalSubscribeVideoUnmutedCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证拉流端视频的muted是否为false";
+        return "验证拉流端视频的enabled是否为true";
     }
 
     @Override
     protected void step() {
         try {
             String videoCheck = "uninit";
-            String VideoMuted = "uninit";
+            String VideoEnabled = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 logger.info("获取订阅流视频状态和muted");
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
-                VideoMuted = localO2oRTCPage.getVideoState(remoteIndex);
+                VideoEnabled = localO2oRTCPage.getVideoState(remoteIndex);
 
-                if (!"false".equalsIgnoreCase(VideoMuted) && !"video".equalsIgnoreCase(videoCheck)) {
+                if (!"true".equalsIgnoreCase(VideoEnabled) && !"video".equalsIgnoreCase(videoCheck)) {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
                     logger.info("订阅流视频状态为：" + videoCheck);
-                    logger.info("订阅视频muted为：" + VideoMuted);
+                    logger.info("订阅视频muted为：" + VideoEnabled);
                     reporter.textAttachment(report, "订阅视频为：",videoCheck, "plain");
-                    reporter.textAttachment(report, "订阅视频muted为：",VideoMuted, "plain");
+                    reporter.textAttachment(report, "订阅视频muted为：",VideoEnabled, "plain");
                     return;
                 }
             }
             if(!"video".equalsIgnoreCase(videoCheck)){
                 throw new KiteTestException("订阅流视频状态为：" + videoCheck, Status.FAILED);
             }
-            if(!VideoMuted.equalsIgnoreCase("false" )){
-                throw new KiteTestException("订阅视频muted状态为："+VideoMuted,Status.FAILED);
+            if(!VideoEnabled.equalsIgnoreCase("true" )){
+                throw new KiteTestException("订阅视频muted状态为："+VideoEnabled,Status.FAILED);
             }
         } catch (Exception e) {
             //force silent to false in case of error, so the failure appears in the report in all cases.

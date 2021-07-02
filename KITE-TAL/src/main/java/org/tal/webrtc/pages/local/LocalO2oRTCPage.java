@@ -42,7 +42,7 @@ public class LocalO2oRTCPage extends BasePage {
                 "    i++;" +
                 "}" +
                 "var videoTrack=streamI.next().value.getVideoTrack();" +
-                "if(videoTrack){return videoTrack.muted;}else{return 'unknow';}";
+                "if(videoTrack){return videoTrack.enabled;}else{return 'unknow';}";
     }
 
     public String getDownloadStreamScripts(String mp4Name)
