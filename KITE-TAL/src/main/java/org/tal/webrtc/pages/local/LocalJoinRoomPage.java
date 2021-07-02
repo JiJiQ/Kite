@@ -81,6 +81,7 @@ public class LocalJoinRoomPage extends BasePage {
     public void waitNoRemoteVideo(String remoteUserId){
         logger.info("确保这个用户不在房间，否则会导致stream map紊乱："+remoteUserId);
         while (true){
+            System.out.println("打点。。。。。。");
             WebElement remoteVideo;
             try {
                 remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/video[1]"));
@@ -90,7 +91,7 @@ public class LocalJoinRoomPage extends BasePage {
                 TestUtils.waitAround(2000);
             }catch (NoSuchElementException e){
                 break;
-            }catch (KiteInteractionException e){
+            }catch (Exception e){
                 logger.error(e.getMessage());
             }
         }
