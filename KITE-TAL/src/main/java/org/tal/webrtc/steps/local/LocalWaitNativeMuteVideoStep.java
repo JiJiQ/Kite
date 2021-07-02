@@ -21,7 +21,7 @@ public class LocalWaitNativeMuteVideoStep extends TestStep {
             if("false".equalsIgnoreCase(remoteVideoEnabled)){
                 break;
             }else{
-                logger.info("remote 还未操作mute视频，等待2s。remoteVideoMuted："+remoteVideoEnabled);
+                logger.info("remote 还未操作mute视频，等待2s。remoteVideoEnabled："+remoteVideoEnabled);
                 TestUtils.waitAround(2000);
             }
         }

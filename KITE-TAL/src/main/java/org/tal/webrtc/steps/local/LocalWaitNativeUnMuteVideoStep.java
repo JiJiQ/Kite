@@ -23,7 +23,7 @@ public class LocalWaitNativeUnMuteVideoStep extends TestStep {
                     !"uninit".equalsIgnoreCase(remoteVideoEnabled)){
                 return;
             }else{
-                logger.info("remote 还未操作unmute视频，等待2s。");
+                logger.info("remote 还未操作unmute视频，等待2s。remoteVideoEnabled："+remoteVideoEnabled);
                 TestUtils.waitAround(2000);
             }
         }
