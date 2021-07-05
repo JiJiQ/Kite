@@ -50,8 +50,6 @@ public class LocalJoinRoomPage extends BasePage {
 
         waitAround(2000);
         this.click(joinButton);
-        waitAround(1000);
-        this.click(joinButton);
         waitAround(2000);
         this.click(createLStreamButton);
         waitAround(2000);
