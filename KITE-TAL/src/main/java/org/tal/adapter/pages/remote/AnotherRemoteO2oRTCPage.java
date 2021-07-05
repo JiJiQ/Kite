@@ -1,13 +1,11 @@
 package org.tal.adapter.pages.remote;
 
 import io.cosmosoftware.kite.entities.Timeouts;
-import io.cosmosoftware.kite.exception.KiteInteractionException;
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.interfaces.Runner;
 import io.cosmosoftware.kite.util.TestUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.tal.adapter.pages.RemoteBasePage;
 
 import java.net.MalformedURLException;
