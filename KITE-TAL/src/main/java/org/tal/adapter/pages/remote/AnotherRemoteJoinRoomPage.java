@@ -29,17 +29,17 @@ public class AnotherRemoteJoinRoomPage extends RemoteBasePage {
     @FindBy(id = "publishStream")
     WebElement publishButton;
 
-
     @FindBy(id = "selectPreOnline")
     WebElement selectPreOnline;
+
     public AnotherRemoteJoinRoomPage(Runner runner) throws MalformedURLException {
         super(runner);
     }
 
     public void remoteJoinRoom(String roomId, String userId,String serverUrl,String debugOption) throws KiteTestException {
         PageFactory.initElements(anotherRemoteWebDriver, this);
-        waitAround(500);
         anotherRemoteWebDriver.get(TalTest.apprtcURL);
+        waitAround(1000);
         this.click(selectPreOnline);
         this.sendKeys(this.roomIdTextBox, roomId);
         this.sendKeys(this.userIdTextBox,userId);

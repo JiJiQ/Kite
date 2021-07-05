@@ -30,7 +30,6 @@ public class RemoteJoinRoomPage extends RemoteBasePage {
     @FindBy(id = "publishStream")
     WebElement publishButton;
 
-
     @FindBy(id = "selectPreOnline")
     WebElement selectPreOnline;
     public RemoteJoinRoomPage(Runner runner) throws MalformedURLException {
