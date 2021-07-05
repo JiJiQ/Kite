@@ -35,7 +35,7 @@ public class LocalO2oRTCPage extends BasePage {
 
     public String getVideoStateScripts(String remoteId) {
         return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+");" +
-                "if(stream){stream.getVideoTrack().enabled;}else{return 'unknow';}";
+                "if(stream){return stream.getVideoTrack().enabled;}else{return 'unknow';}";
     }
 
     public String getDownloadStreamScripts(String mp4Name)
@@ -48,7 +48,7 @@ public class LocalO2oRTCPage extends BasePage {
 
     public String getAudioStateScripts(String remoteId) {
         return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+");" +
-                "if(stream){stream.getAudioTrack().enabled;}else{return 'unknow';}";
+                "if(stream){return stream.getAudioTrack().enabled;}else{return 'unknow';}";
     }
 
     public String getAudioState(String remoteId) throws KiteInteractionException {
