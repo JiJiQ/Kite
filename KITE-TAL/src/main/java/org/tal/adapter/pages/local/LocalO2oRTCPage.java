@@ -34,7 +34,7 @@ public class LocalO2oRTCPage extends BasePage {
     }
 
     public String getVideoStateScripts(String remoteId) {
-        return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+")" +
+        return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+");" +
                 "if(stream){stream.getVideoTrack().enabled;}else{return 'unknow';}";
     }
 
@@ -47,7 +47,7 @@ public class LocalO2oRTCPage extends BasePage {
     }
 
     public String getAudioStateScripts(String remoteId) {
-        return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+")" +
+        return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+");" +
                 "if(stream){stream.getAudioTrack().enabled;}else{return 'unknow';}";
     }
 
@@ -55,41 +55,10 @@ public class LocalO2oRTCPage extends BasePage {
         return String.valueOf(TestUtils.executeJsScript(this.webDriver,getAudioStateScripts(remoteId)));
     }
 
-    public String getAudioLevelScript(int index){
-        return "var streamI=streamMap.keys();" +
-                "var i=0;" +
-                "while(i<" + index + "){" +
-                "    streamI.next();" +
-                "    i++;" +
-                "}" +
-                "var streamK=streamI.next().value;" +
-                "if(stream){return streamK.getAudioLevel()}else{return -1;}";
-    }
-
-    public String getAudioLevel(int index) throws KiteInteractionException {
-        int divIndex=8+index;
-        WebElement subscribeVideo=this.webDriver.findElement(By.xpath("/html[1]/body[1]/div["+divIndex+"]/div[1]/video[1]"));
-        waitUntilVisibilityOf(subscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
-        String level=String.valueOf(TestUtils.executeJsScript(this.webDriver,getAudioLevelScript(1)));
-        logger.info("音量 "+level);
-        return level;
-    }
-
     public String subscribeVideoCheck(int index) throws KiteTestException {
         int divIndex=index;
         WebElement subscribeVideo=this.webDriver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[2]/div["+divIndex+"]/div[1]/video[1]"));
         waitUntilVisibilityOf(subscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
         return TestUtils.videoCheck(webDriver, index);
-    }
-
-    public void videoControl() throws KiteInteractionException {
-        TestUtils.waitAround(2000);
-        this.click(localVideoControl);
-        TestUtils.waitAround(2000);
-    }
-    public void audioControl() throws KiteInteractionException {
-        TestUtils.waitAround(2000);
-        this.click(localAudioControl);
-        TestUtils.waitAround(2000);
     }
 }
