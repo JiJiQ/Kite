@@ -16,11 +16,17 @@ import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
 
 public class RemoteO2oRTCPage extends RemoteBasePage {
 
-    @FindBy(xpath = "/html[1]/body[1]/div[8]/div[1]/div[3]/button[1]")
-    WebElement localVideoControl;
+    @FindBy(id="muteLocalVideo")
+    WebElement muteLocalVideo;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[8]/div[1]/div[3]/button[2]")
-    WebElement localAudioControl;
+    @FindBy(id="muteLocalAudio")
+    WebElement muteLocalAudio;
+
+    @FindBy(id="unmuteLocalVideo")
+    WebElement unmuteLocalVideo;
+
+    @FindBy(id="unmuteLocalAudio")
+    WebElement unmuteLocalAudio;
 
     public RemoteO2oRTCPage(Runner runner) throws MalformedURLException {
         super(runner);
@@ -43,10 +49,16 @@ public class RemoteO2oRTCPage extends RemoteBasePage {
         return TestUtils.videoCheck(webDriver, index);
     }
 
-    public void videoControl() throws KiteInteractionException {
-        this.click(localVideoControl);
+    public void muteLocalVideo() throws KiteInteractionException {
+        this.click(muteLocalVideo);
     }
-    public void audioControl() throws KiteInteractionException {
-        this.click(localAudioControl);
+    public void unmuteLocalVideo() throws KiteInteractionException {
+        this.click(unmuteLocalVideo);
+    }
+    public void muteLocalAudio() throws KiteInteractionException {
+        this.click(muteLocalAudio);
+    }
+    public void unmuteLocalAudio() throws KiteInteractionException {
+        this.click(unmuteLocalAudio);
     }
 }

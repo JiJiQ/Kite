@@ -33,38 +33,26 @@ public class LocalO2oRTCPage extends BasePage {
                 "if(state){return state;}else{return 'unknow';}";
     }
 
-    public String getVideoStateScripts(int index) {
-        return "var streamI=streamMap.keys();" +
-                "var i=0;" +
-                "while(i<" + index + "){" +
-                "    streamI.next();" +
-                "    i++;" +
-                "}" +
-                "var videoTrack=streamI.next().value.getVideoTrack();" +
-                "if(videoTrack){return videoTrack.enabled;}else{return 'unknow';}";
+    public String getVideoStateScripts(String remoteId) {
+        return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+")" +
+                "if(stream){stream.getVideoTrack().enabled;}else{return 'unknow';}";
     }
 
     public String getDownloadStreamScripts(String mp4Name)
     {
         return "";
     }
-    public String getVideoState(int index) throws KiteInteractionException {
-        return String.valueOf(TestUtils.executeJsScript(this.webDriver,getVideoStateScripts(index)));
+    public String getVideoState(String remoteId) throws KiteInteractionException {
+        return String.valueOf(TestUtils.executeJsScript(this.webDriver,getVideoStateScripts(remoteId)));
     }
 
-    public String getAudioStateScripts(int index) {
-        return "var streamI=streamMap.keys();" +
-                "var i=0;" +
-                "while(i<" + index + "){" +
-                "    streamI.next();" +
-                "    i++;" +
-                "}" +
-                "var audioTrack=streamI.next().value.getAudioTrack();" +
-                "if(audioTrack){return audioTrack.enabled;}else{return 'unknow';}";
+    public String getAudioStateScripts(String remoteId) {
+        return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+")" +
+                "if(stream){stream.getAudioTrack().enabled;}else{return 'unknow';}";
     }
 
-    public String getAudioState(int index) throws KiteInteractionException {
-        return String.valueOf(TestUtils.executeJsScript(this.webDriver,getAudioStateScripts(index)));
+    public String getAudioState(String remoteId) throws KiteInteractionException {
+        return String.valueOf(TestUtils.executeJsScript(this.webDriver,getAudioStateScripts(remoteId)));
     }
 
     public String getAudioLevelScript(int index){
