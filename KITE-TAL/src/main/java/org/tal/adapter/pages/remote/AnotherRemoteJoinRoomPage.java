@@ -5,8 +5,8 @@ import io.cosmosoftware.kite.interfaces.Runner;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.tal.webrtc.pages.RemoteBasePage;
-import org.tal.webrtc.tests.TalTest;
+import org.tal.adapter.pages.RemoteBasePage;
+import org.tal.adapter.tests.TalTest;
 
 import java.net.MalformedURLException;
 
