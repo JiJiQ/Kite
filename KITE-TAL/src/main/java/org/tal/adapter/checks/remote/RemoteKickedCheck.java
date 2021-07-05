@@ -25,7 +25,7 @@ public class RemoteKickedCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证remote是否为 'kicked'状态";
+        return "验证remote是否为 'left'状态";
     }
 
     @Override
@@ -34,7 +34,7 @@ public class RemoteKickedCheck extends TestCheck {
             String remoteIceState = "";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
                 remoteIceState = remoteO2oRTCPage.getIceConnectionState();
-                if (remoteIceState.equalsIgnoreCase("kicked")) {
+                if (remoteIceState.equalsIgnoreCase("left")) {
                     return;
                 }
                 TestUtils.waitAround(this.checkInterval);
