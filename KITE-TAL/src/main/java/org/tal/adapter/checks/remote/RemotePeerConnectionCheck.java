@@ -25,7 +25,7 @@ public class RemotePeerConnectionCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证remote与服务器的ICE连接状态是否为 'connected'";
+        return "验证remote是否为 'joined'状态";
     }
 
     @Override

@@ -19,7 +19,7 @@ public class LocalPeerConnectionCheck extends TestCheck {
 
     @Override
     public String stepDescription() {
-        return "验证local与服务器的ICE连接状态是否为 'connected'";
+        return "验证local是否为 'joined'状态";
     }
 
     @Override
