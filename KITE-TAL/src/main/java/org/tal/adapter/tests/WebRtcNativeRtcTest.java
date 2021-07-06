@@ -5,11 +5,7 @@ import io.cosmosoftware.kite.util.WebDriverUtils;
 import org.tal.adapter.checks.local.LocalPeerConnectionCheck;
 import org.tal.adapter.checks.local.LocalSubscribeVideoDisplayCheck;
 import org.tal.adapter.steps.ScreenRecordStep;
-import org.tal.adapter.steps.local.LocalMuteAudioStep;
-import org.tal.adapter.steps.local.LocalMuteVideoStep;
-import org.tal.adapter.steps.local.LocalUnmuteAudioStep;
-import org.tal.adapter.steps.local.LocalUnmuteVideoStep;
-import org.tal.webrtc.steps.local.LocalJoinRoomWaitStep;
+import org.tal.adapter.steps.local.*;
 import org.webrtc.kite.tests.TestRunner;
 
 

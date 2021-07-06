@@ -15,7 +15,6 @@ import org.tal.adapter.tests.TalTest;
 
 import static io.cosmosoftware.kite.util.TestUtils.executeJsScript;
 import static io.cosmosoftware.kite.util.TestUtils.waitAround;
-import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
 
 public class LocalJoinRoomPage extends BasePage {
 
@@ -59,26 +58,24 @@ public class LocalJoinRoomPage extends BasePage {
     }
     public void localJoinRoomNoPush(String roomId, String userId,String serverUrl,String debugOption) throws KiteTestException {
         this.webDriver.get(TalTest.apprtcURL);
-        logger.info(this.webDriver);
-        waitAround(2000);
+        waitAround(1000);
+        this.click(selectPreOnline);
         webDriver.manage().window().maximize();
         this.sendKeys(roomIdTextBox,roomId);
         this.sendKeys(userIdTextBox,userId);
 
-        waitAround(4000);
-        this.click(joinButton);
-        waitAround(1000);
-        this.webDriver.findElement(By.id("joinRoom")).click();
         waitAround(2000);
+        this.click(joinButton);
     }
 
-    public void waitRemoteVideo(String remoteUserId){
+    public void waitRemoteVideo(String roomId,String remoteUserId){
         logger.info("看到这句话后remote再推流，不然会导致streamMap不可控。");
         logger.info("等待远程客户端推流，请使用指定userid："+remoteUserId);
         while (true){
             WebElement remoteVideo;
             try {
-                remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/video[1]"));
+                remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='conference']/div[@id='remote_container']/" +
+                        "div[@id='remote_container_room"+roomId+"']/div[@id='room"+roomId+"_s"+remoteUserId+"']/div[@id='room"+roomId+"_s"+remoteUserId+"_play']/video[1]"));
                 waitUntilVisibilityOf(remoteVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
                 logger.info("远程客户端"+remoteUserId+"已推流，结束等待。");
                 break;
@@ -90,12 +87,13 @@ public class LocalJoinRoomPage extends BasePage {
             }
         }
     }
-    public void waitNoRemoteVideo(String remoteUserId){
+    public void waitNoRemoteVideo(String roomId,String remoteUserId){
         logger.info("确保这个用户不在房间，否则会导致stream map紊乱："+remoteUserId);
         while (true){
             WebElement remoteVideo;
             try {
-                remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='remote']/div[@id='remote_"+remoteUserId+"']/video[1]"));
+                remoteVideo=this.webDriver.findElement(By.xpath("//body/div[@id='conference']/div[@id='remote_container']/" +
+                        "div[@id='remote_container_room"+roomId+"']/div[@id='room"+roomId+"_s"+remoteUserId+"']/div[@id='room"+roomId+"_s"+remoteUserId+"_play']/video[1]"));
                 waitUntilVisibilityOf(remoteVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
                 logger.info("远程客户端"+remoteUserId+"已推流。");
                 logger.info("远程客户端还没有退出房间，等待2s。。。");
