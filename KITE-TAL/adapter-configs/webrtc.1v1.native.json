@@ -9,15 +9,13 @@
   ],
   "tests": [
     {
-      "name": "与rtn客户端互通 %ts",
+      "name": "与native客户端互通 %ts",
       "tupleSize": 1,
-      "description": "与rtn客户端互通",
+      "description": "与native客户端互通",
       "testImpl": "org.adapter.webrtc.tests.WebRtcNativeRtcTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
-        "localServer": "8-140-113-148.eaydu.com",
-        "remoteServer": "8-140-113-148.eaydu.com",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
