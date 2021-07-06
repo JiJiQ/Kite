@@ -13,11 +13,17 @@ import org.openqa.selenium.support.FindBy;
 
 public class LocalO2oRTCPage extends BasePage {
 
-    @FindBy(xpath = "/html[1]/body[1]/div[8]/div[1]/div[3]/button[1]")
-    WebElement localVideoControl;
+    @FindBy(id="muteLocalVideo")
+    WebElement muteLocalVideo;
 
-    @FindBy(xpath = "/html[1]/body[1]/div[8]/div[1]/div[3]/button[2]")
-    WebElement localAudioControl;
+    @FindBy(id="muteLocalAudio")
+    WebElement muteLocalAudio;
+
+    @FindBy(id="unmuteLocalVideo")
+    WebElement unmuteLocalVideo;
+
+    @FindBy(id="unmuteLocalAudio")
+    WebElement unmuteLocalAudio;
 
     public LocalO2oRTCPage(Runner runner) {
         super(runner);
@@ -61,4 +67,18 @@ public class LocalO2oRTCPage extends BasePage {
         waitUntilVisibilityOf(subscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
         return TestUtils.videoCheck(webDriver, index);
     }
+
+    public void muteLocalVideo() throws KiteInteractionException {
+        this.click(muteLocalVideo);
+    }
+    public void unmuteLocalVideo() throws KiteInteractionException {
+        this.click(unmuteLocalVideo);
+    }
+    public void muteLocalAudio() throws KiteInteractionException {
+        this.click(muteLocalAudio);
+    }
+    public void unmuteLocalAudio() throws KiteInteractionException {
+        this.click(unmuteLocalAudio);
+    }
+
 }

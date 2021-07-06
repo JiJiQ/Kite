@@ -11,7 +11,6 @@ import org.tal.adapter.pages.RemoteBasePage;
 import java.net.MalformedURLException;
 
 import static org.webrtc.kite.config.client.RemoteClient.anotherRemoteWebDriver;
-import static org.webrtc.kite.config.client.RemoteClient.remoteWebDriver;
 
 public class AnotherRemoteO2oRTCPage extends RemoteBasePage {
 
