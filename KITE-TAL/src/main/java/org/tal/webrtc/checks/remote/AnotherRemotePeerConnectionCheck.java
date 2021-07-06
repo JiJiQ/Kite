@@ -43,7 +43,7 @@ public class AnotherRemotePeerConnectionCheck extends TestCheck {
                 }
                 TestUtils.waitAround(this.checkInterval);
             }
-            throw new KiteTestException("获取ice状态超时：" + this.checkTimeout +"another remote ice状态一直为："+remoteIceState, Status.FAILED);
+            throw new KiteTestException("ice状态超时：" + this.checkTimeout +"another remote ice状态一直为："+remoteIceState, Status.FAILED);
         } catch (Exception e) {
             //force silent to false in case of error, so the failure appears in the report in all cases.
             try {

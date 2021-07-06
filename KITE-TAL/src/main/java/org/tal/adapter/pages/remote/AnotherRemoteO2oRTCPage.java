@@ -20,7 +20,7 @@ public class AnotherRemoteO2oRTCPage extends RemoteBasePage {
     }
 
     public String getIceConnectionState() throws KiteTestException {
-        return (String) TestUtils.executeJsScript(remoteWebDriver, getIceConnectionStateScript());
+        return (String) TestUtils.executeJsScript(anotherRemoteWebDriver, getIceConnectionStateScript());
     }
 
     public String getIceConnectionStateScript() {
