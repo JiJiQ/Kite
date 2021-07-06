@@ -21,6 +21,6 @@ public class LocalMuteAudioStep extends TestStep {
 
     @Override
     public String stepDescription() {
-        return "remote mute音频。";
+        return "local mute音频。";
     }
 }

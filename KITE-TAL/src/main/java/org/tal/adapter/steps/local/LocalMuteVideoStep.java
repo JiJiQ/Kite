@@ -22,6 +22,6 @@ public class LocalMuteVideoStep extends TestStep {
 
     @Override
     public String stepDescription() {
-        return "remote mute视频。";
+        return "local mute视频。";
     }
 }
