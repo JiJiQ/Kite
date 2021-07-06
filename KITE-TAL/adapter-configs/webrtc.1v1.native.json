@@ -12,7 +12,7 @@
       "name": "与native客户端互通 %ts",
       "tupleSize": 1,
       "description": "与native客户端互通",
-      "testImpl": "org.adapter.webrtc.tests.WebRtcNativeRtcTest",
+      "testImpl": "org.tal.adapter.tests.WebRtcNativeRtcTest",
       "csvReport": true,
       "payload": {
         "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
