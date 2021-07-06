@@ -9,7 +9,7 @@
   ],
   "tests": [
     {
-      "name": "音视频控制测试 %ts",
+      "name": "互踢测试 %ts",
       "tupleSize": 1,
       "description": " ",
       "testImpl": "org.tal.adapter.tests.WebRtc1v1KickTest",
