@@ -69,7 +69,6 @@ public class LocalJoinRoomPage extends BasePage {
     }
 
     public void waitRemoteVideo(String roomId,String remoteUserId){
-        logger.info("看到这句话后remote再推流，不然会导致streamMap不可控。");
         logger.info("等待远程客户端推流，请使用指定userid："+remoteUserId);
         while (true){
             WebElement remoteVideo;
