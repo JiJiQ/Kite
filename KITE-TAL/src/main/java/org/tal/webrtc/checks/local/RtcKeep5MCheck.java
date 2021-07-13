@@ -38,7 +38,7 @@ public class RtcKeep5MCheck extends TestCheck {
                 String remoteIceState;
                 String localVideoCheck;
                 String remoteVideoCheck;
-                for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
+                for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += 5*this.checkInterval) {
                     localIceState = localO2oRTCPage.getIceConnectionState();
                     remoteIceState = remoteO2oRTCPage.getIceConnectionState();
                     localVideoCheck = localO2oRTCPage.subscribeVideoCheck(1);

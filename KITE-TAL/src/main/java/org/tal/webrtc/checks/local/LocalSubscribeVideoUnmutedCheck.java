@@ -28,7 +28,7 @@ public class LocalSubscribeVideoUnmutedCheck extends TestCheck {
         try {
             String videoCheck = "uninit";
             String VideoEnabled = "uninit";
-            for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
+            for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += 5*this.checkInterval) {
                 logger.info("获取订阅流视频状态和muted");
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
                 VideoEnabled = localO2oRTCPage.getVideoState(remoteIndex);
