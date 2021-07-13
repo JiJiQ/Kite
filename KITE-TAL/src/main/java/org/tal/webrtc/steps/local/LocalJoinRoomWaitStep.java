@@ -2,6 +2,7 @@ package org.tal.webrtc.steps.local;
 
 import io.cosmosoftware.kite.exception.KiteTestException;
 import io.cosmosoftware.kite.steps.TestStep;
+import io.cosmosoftware.kite.util.TestUtils;
 import org.tal.webrtc.pages.local.LocalJoinRoomPage;
 import org.webrtc.kite.tests.TestRunner;
 
@@ -54,5 +55,6 @@ public class LocalJoinRoomWaitStep extends TestStep {
                 this.localUserId!=null?this.localUserId:"239823082",
                 this.localServerUrl, this.debugOption != null ? this.debugOption : "");
         localJoinRoomPage.waitRemoteVideo(this.remoteUserId!=null?this.remoteUserId:"1001");
+        TestUtils.waitAround(5000);
     }
 }
