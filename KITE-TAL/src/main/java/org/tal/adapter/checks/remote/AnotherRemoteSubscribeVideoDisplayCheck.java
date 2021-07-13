@@ -28,7 +28,7 @@ public class AnotherRemoteSubscribeVideoDisplayCheck extends TestCheck {
     protected void step() {
         try {
             String videoCheck = "uninit";
-            for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
+            for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += 5*this.checkInterval) {
                 logger.info("remote 获取拉流视频播放控件");
                 videoCheck = anotherRemoteO2oRTCPage.subscribeVideoCheck(1);
                 if (!"video".equalsIgnoreCase(videoCheck)) {
