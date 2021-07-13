@@ -41,7 +41,7 @@ public class LocalO2oRTCPage extends BasePage {
 
     public String getVideoStateScripts(String remoteId) {
         return "var stream=window.defaultEngine.engineImpl.remoteStreams.get("+remoteId+");" +
-                "if(stream){return stream.getVideoTrack().enabled;}else{return 'unknow';}";
+                "if(stream.getVideoTrack()){return stream.getVideoTrack().enabled;}else{return 'unknow';}";
     }
 
     public String getDownloadStreamScripts(String mp4Name)
