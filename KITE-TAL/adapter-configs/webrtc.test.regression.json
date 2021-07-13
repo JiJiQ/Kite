@@ -1,0 +1,24 @@
+{
+  "name": "适配层回归测试",
+  "callable": true,
+  "grids": [
+    {
+      "type": "local",
+      "url": "http://10.73.85.63:4444/wd/hub"
+    }
+  ],
+  "tests": [
+
+  ],
+  "clients": [
+    {
+      "browserName": "chrome",
+      "platform": "MAC"
+    }
+  ],
+  "remoteClients":
+  {
+    "browserName": "chrome",
+    "platform": "localhost"
+  }
+}
