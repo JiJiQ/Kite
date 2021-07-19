@@ -39,10 +39,12 @@ public class LocalJoinRoomPage extends BasePage {
         super(runner);
     }
 
-    public void localJoinRoom(String roomId, String userId,String serverUrl,String debugOption) throws KiteTestException {
+    public void localJoinRoom(String roomId, String userId,Boolean ifPre) throws KiteTestException {
         this.webDriver.get(TalTest.apprtcURL);
         waitAround(1000);
-        this.click(selectPreOnline);
+        if(ifPre){
+            this.click(selectPreOnline);
+        }
         webDriver.manage().window().maximize();
         this.sendKeys(roomIdTextBox,roomId);
         this.sendKeys(userIdTextBox,userId);

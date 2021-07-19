@@ -48,7 +48,7 @@ public class LocalJoinRoomWaitStep extends TestStep {
     protected void step() throws KiteTestException {
         localJoinRoomPage.localJoinRoom(this.roomId != null ? this.roomId : "23982308",
                 this.localUserId!=null?this.localUserId:"239823082",
-                this.localServerUrl, this.debugOption != null ? this.debugOption : "");
+                false);
         localJoinRoomPage.waitRemoteVideo(this.roomId != null ? this.roomId : "23982308",
                 this.remoteUserId!=null?this.remoteUserId:"1001");
         TestUtils.waitAround(5000);

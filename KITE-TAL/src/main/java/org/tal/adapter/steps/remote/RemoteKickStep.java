@@ -48,6 +48,6 @@ public class RemoteKickStep extends TestStep {
     protected void step() throws KiteTestException {
         anotherRemoteJoinRoomPage.remoteJoinRoom(this.roomId != null ? this.roomId : "23982308",
                 this.remoteUserId!=null?this.remoteUserId:"239823082",
-                this.remoteServerUrl, this.debugOption != null ? this.debugOption : "");
+                false);
        }
 }
