@@ -89,9 +89,6 @@ public class LocalO2oRTCPage extends BasePage {
     }
 
     public String subscribeVideoCheck(int index) throws KiteTestException {
-        int divIndex=index;
-        WebElement subscribeVideo=this.webDriver.findElement(By.xpath("/html[1]/body[1]/div[9]/div["+divIndex+"]/video[1]"));
-        waitUntilVisibilityOf(subscribeVideo, Timeouts.TEN_SECOND_INTERVAL_IN_SECONDS);
         return TestUtils.videoCheck(webDriver, index);
     }
 
