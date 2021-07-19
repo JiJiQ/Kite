@@ -35,11 +35,11 @@ public class WebRtcNativeVideoControlTest extends TalTest {
 
         runner.addStep(localWaitNativeMuteVideoStep);
 
-        runner.addStep(new LocalSubscribeVideoMutedCheck(runner,roomId));
+        runner.addStep(new LocalSubscribeVideoMutedCheck(runner,rtnUserId));
         runner.addStep(new ScreenRecordStep(runner,"remote操作了mute audio，demo截图"));
         runner.addStep(localWaitNativeUnMuteVideoStep);
 
-        runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner,roomId));
+        runner.addStep(new LocalSubscribeVideoUnmutedCheck(runner,rtnUserId));
         runner.addStep(new ScreenRecordStep(runner,"remote操作了unmute audio，demo截图"));
 
         if (WebDriverUtils.isChrome(runner.getWebDriver())) {
