@@ -29,7 +29,7 @@ public class LocalSubscribeVideoMutedCheck extends TestCheck {
             String videoCheck = "uninit";
             String VideoEnabled = "uninit";
             for (int elapsedTime = 0; elapsedTime < this.checkTimeout; elapsedTime += this.checkInterval) {
-                logger.info("获取订阅流视频状态和muted");
+                logger.info("获取订阅流视频状态和enabled");
                 videoCheck = localO2oRTCPage.subscribeVideoCheck(1);
                 VideoEnabled = localO2oRTCPage.getVideoState(remoteId);
                 if (!"false".equalsIgnoreCase(VideoEnabled) &&
@@ -37,9 +37,9 @@ public class LocalSubscribeVideoMutedCheck extends TestCheck {
                     TestUtils.waitAround(this.checkInterval);
                 } else {
                     logger.info("订阅流视频状态为：" + videoCheck);
-                    logger.info("订阅流视频muted为：" + VideoEnabled);
+                    logger.info("订阅流视频enabled为：" + VideoEnabled);
                     reporter.textAttachment(report, "订阅视频状态为：",videoCheck, "plain");
-                    reporter.textAttachment(report, "订阅视频muted为：",VideoEnabled, "plain");
+                    reporter.textAttachment(report, "订阅视频enabled为：",VideoEnabled, "plain");
                     return;
                 }
             }
@@ -47,7 +47,7 @@ public class LocalSubscribeVideoMutedCheck extends TestCheck {
                 throw new KiteTestException("订阅流视频状态为：" + videoCheck, Status.FAILED);
             }
             if(!"false".equalsIgnoreCase(VideoEnabled)){
-                throw new KiteTestException("订阅视频muted为："+VideoEnabled,Status.FAILED);
+                throw new KiteTestException("订阅视频enabled为："+VideoEnabled,Status.FAILED);
             }
         } catch (Exception e) {
             //force silent to false in case of error, so the failure appears in the report in all cases.
