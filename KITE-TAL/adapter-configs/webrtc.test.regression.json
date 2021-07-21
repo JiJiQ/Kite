@@ -15,7 +15,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtcNativeRtcTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -40,7 +40,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtcNativeVideoControlTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -65,7 +65,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtcQuitRecoveryNativeVideoTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -91,7 +91,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtc1v1Keep5MTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -116,7 +116,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -141,7 +141,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -166,7 +166,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtc1v1KickTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -191,7 +191,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtcQuitRecoveryVideoTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -216,7 +216,7 @@
       "testImpl": "org.tal.adapter.tests.WebRtcQuitRejoinTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html",
+        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
