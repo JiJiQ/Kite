@@ -1,5 +1,5 @@
 {
-  "name": "适配层回归测试",
+  "name": "测试环境适配层回归测试",
   "callable": true,
   "grids": [
     {
@@ -15,7 +15,8 @@
       "testImpl": "org.tal.adapter.tests.WebRtcNativeRtcTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -34,13 +35,14 @@
       }
     },
     {
-      "name": "rtn mute-unmute 视频 %ts",
+      "name": "rtn mute-unmute 视频%ts",
       "tupleSize": 1,
       "description": "rtn mute-unmute 视频",
       "testImpl": "org.tal.adapter.tests.WebRtcNativeVideoControlTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -59,13 +61,14 @@
       }
     },
     {
-      "name": "native音视频状态恢复测试 非级联 8-140-113-148 %ts",
+      "name": "native音视频状态恢复测试%ts",
       "tupleSize": 1,
       "description": "适配层webrtc native音视频状态恢复测试",
       "testImpl": "org.tal.adapter.tests.WebRtcQuitRecoveryNativeVideoTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -85,13 +88,14 @@
     },
 
     {
-      "name": "音视频互通测试5m %ts",
+      "name": "音视频互通测试5m 非级联%ts",
       "tupleSize": 1,
       "description": "一台服务器 1v1 推拉流互通",
       "testImpl": "org.tal.adapter.tests.WebRtc1v1Keep5MTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -110,13 +114,41 @@
       }
     },
     {
-      "name": "音视频互通测试 %ts",
+      "name": "音视频互通测试5m 级联%ts",
+      "tupleSize": 1,
+      "description": "一台服务器 1v1 推拉流互通",
+      "testImpl": "org.tal.adapter.tests.WebRtc1v1Keep5MTest",
+      "csvReport": true,
+      "payload": {
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "音视频互通测试 非级联%ts",
       "tupleSize": 1,
       "description": "1v1 推拉流互通",
       "testImpl": "org.tal.adapter.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -135,13 +167,41 @@
       }
     },
     {
-      "name": "音视频控制测试 %ts",
+      "name": "音视频互通测试 级联%ts",
+      "tupleSize": 1,
+      "description": "1v1 推拉流互通",
+      "testImpl": "org.tal.adapter.tests.WebRtc1v1Test",
+      "csvReport": true,
+      "payload": {
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-1484",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "音视频控制测试 非级联%ts",
       "tupleSize": 1,
       "description": " ",
       "testImpl": "org.tal.adapter.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -160,13 +220,41 @@
       }
     },
     {
-      "name": "互踢测试 %ts",
+      "name": "音视频控制测试 级联%ts",
+      "tupleSize": 1,
+      "description": " ",
+      "testImpl": "org.tal.adapter.tests.WebRtc1v1MuteTest",
+      "csvReport": true,
+      "payload": {
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "互踢测试 级联%ts",
       "tupleSize": 1,
       "description": " ",
       "testImpl": "org.tal.adapter.tests.WebRtc1v1KickTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -185,13 +273,41 @@
       }
     },
     {
-      "name": "音视频状态恢复测试 %ts",
+      "name": "互踢测试 非级联%ts",
+      "tupleSize": 1,
+      "description": " ",
+      "testImpl": "org.tal.adapter.tests.WebRtc1v1KickTest",
+      "csvReport": true,
+      "payload": {
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "视频状态恢复测试 非级联%ts",
       "tupleSize": 1,
       "description": "适配层webrtc音视频状态恢复测试",
       "testImpl": "org.tal.adapter.tests.WebRtcQuitRecoveryVideoTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -210,13 +326,67 @@
       }
     },
     {
-      "name": "适配层退出重进测试 %ts",
+      "name": "视频状态恢复测试 级联%ts",
+      "tupleSize": 1,
+      "description": "适配层webrtc音视频状态恢复测试",
+      "testImpl": "org.tal.adapter.tests.WebRtcQuitRecoveryVideoTest",
+      "csvReport": true,
+      "payload": {
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "退出重进测试 非级联%ts",
       "tupleSize": 1,
       "description": "适配层退出重进测试 ",
       "testImpl": "org.tal.adapter.tests.WebRtcQuitRejoinTest",
       "csvReport": true,
       "payload": {
-        "url": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "takeScreenshotForEachTest": true,
+        "getStats": {
+          "enabled": false,
+          "statsCollectionTime": 2000,
+          "statsCollectionInterval": 2000,
+          "peerConnections": [
+            "stream.transport"
+          ],
+          "selectedStats": [
+            "inbound-rtp",
+            "outbound-rtp",
+            "candidate-pair",
+            "track"
+          ]
+        }
+      }
+    },
+    {
+      "name": "退出重进测试 级联%ts",
+      "tupleSize": 1,
+      "description": "适配层退出重进测试 ",
+      "testImpl": "org.tal.adapter.tests.WebRtcQuitRejoinTest",
+      "csvReport": true,
+      "payload": {
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=112-126-100-194",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=8-140-113-148",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
@@ -238,12 +408,12 @@
   "clients": [
     {
       "browserName": "chrome",
-      "platform": "MAC"
+      "platform": "localhost"
     }
   ],
   "remoteClients":
   {
     "browserName": "chrome",
-    "platform": "WINDOWS"
+    "platform": "MAC"
   }
 }

@@ -9,6 +9,8 @@ public abstract class TalTest extends KiteBaseTest {
     public static String remoteUserId="239823082";
     public static String rtnUserId="1001";
 
+    public static String localUrl=apprtcURL+"?h=8-140-113-148";
+    public static String remoteUrl=apprtcURL+"?h=112-126-100-194";
     protected boolean getStats = true;
     private boolean finished=false;
 
@@ -17,6 +19,8 @@ public abstract class TalTest extends KiteBaseTest {
         super.payloadHandling();
         if (this.payload != null) {
             apprtcURL = payload.getString("url", apprtcURL);
+            localUrl = payload.getString("localUrl",localUrl);
+            remoteUrl = payload.getString("remoteUrl",remoteUrl);
         }
     }
 }
