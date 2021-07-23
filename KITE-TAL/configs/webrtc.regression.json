@@ -963,12 +963,12 @@
   "clients": [
     {
       "browserName": "chrome",
-      "platform": "MAC"
+      "platform": "localhost"
     }
   ],
   "remoteClients":
   {
     "browserName": "chrome",
-    "platform": "WINDOWS"
+    "platform": "MAC"
   }
 }
