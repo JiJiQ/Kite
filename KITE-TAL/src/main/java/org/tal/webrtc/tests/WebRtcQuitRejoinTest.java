@@ -36,7 +36,7 @@ public class WebRtcQuitRejoinTest extends TalTest {
         runner.addStep(new RemotePeerConnectionCheck(runner));
         runner.addStep(new RemoteSubscribeVideoDisplayCheck(runner));
 
-        runner.addStep(localJoinRoomStep);
+        runner.addStep(remoteJoinRoomStep);
 
         runner.addStep(new LocalPeerConnectionCheck(runner));
         runner.addStep(new LocalSubscribeVideoDisplayCheck(runner,remoteUserId));
