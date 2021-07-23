@@ -330,8 +330,8 @@
       "testImpl": "org.tal.adapter.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=42-192-197-7",
-        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=82-157-60-32",
+        "localUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=1-116-106-223",
+        "remoteUrl": "https://dev-webrtc.weclassroom.com/engine/example/index.html?h=82-157-61-199",
         "takeScreenshotForEachTest": true,
         "getStats": {
           "enabled": false,
