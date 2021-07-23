@@ -11,6 +11,7 @@ import org.tal.adapter.pages.remote.RemoteO2oRTCPage;
 import java.net.MalformedURLException;
 
 import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
+import static org.webrtc.kite.config.client.RemoteClient.anotherRemoteWebDriver;
 
 public class AnotherRemoteSubscribeVideoDisplayCheck extends TestCheck {
     AnotherRemoteO2oRTCPage anotherRemoteO2oRTCPage;
@@ -45,7 +46,7 @@ public class AnotherRemoteSubscribeVideoDisplayCheck extends TestCheck {
             //force silent to false in case of error, so the failure appears in the report in all cases.
             try {
                 String screenshotName = "error_screenshot_" + this.getName();
-                reporter.screenshotAttachment(this.report, screenshotName, saveScreenshotPNG(webDriver));
+                reporter.screenshotAttachment(this.report, screenshotName, saveScreenshotPNG(anotherRemoteWebDriver));
             } catch (KiteTestException ex) {
                 logger.warn("Could not attach screenshot to error of step: " + stepDescription());
             }

@@ -49,7 +49,7 @@ public class RemotePeerConnectionCheck extends TestCheck {
             //force silent to false in case of error, so the failure appears in the report in all cases.
             try {
                 String screenshotName = "error_screenshot_" + this.getName();
-                reporter.screenshotAttachment(this.report, screenshotName, saveScreenshotPNG(webDriver));
+                reporter.screenshotAttachment(this.report, screenshotName, saveScreenshotPNG(remoteWebDriver));
             } catch (KiteTestException ex) {
                 logger.warn("Could not attach screenshot to error of step: " + stepDescription());
             }

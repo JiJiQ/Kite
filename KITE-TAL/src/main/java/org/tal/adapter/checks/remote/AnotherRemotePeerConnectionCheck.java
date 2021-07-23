@@ -6,10 +6,12 @@ import io.cosmosoftware.kite.report.Status;
 import io.cosmosoftware.kite.steps.TestCheck;
 import io.cosmosoftware.kite.util.TestUtils;
 import org.tal.adapter.pages.remote.AnotherRemoteO2oRTCPage;
+import org.webrtc.kite.config.client.RemoteClient;
 
 import java.net.MalformedURLException;
 
 import static io.cosmosoftware.kite.util.ReportUtils.saveScreenshotPNG;
+import static org.webrtc.kite.config.client.RemoteClient.anotherRemoteWebDriver;
 
 public class AnotherRemotePeerConnectionCheck extends TestCheck {
     private AnotherRemoteO2oRTCPage anotherRemoteO2oRTCPage;
@@ -44,7 +46,7 @@ public class AnotherRemotePeerConnectionCheck extends TestCheck {
             //force silent to false in case of error, so the failure appears in the report in all cases.
             try {
                 String screenshotName = "error_screenshot_" + this.getName();
-                reporter.screenshotAttachment(this.report, screenshotName, saveScreenshotPNG(webDriver));
+                reporter.screenshotAttachment(this.report, screenshotName, saveScreenshotPNG(anotherRemoteWebDriver));
             } catch (KiteTestException ex) {
                 logger.warn("Could not attach screenshot to error of step: " + stepDescription());
             }
