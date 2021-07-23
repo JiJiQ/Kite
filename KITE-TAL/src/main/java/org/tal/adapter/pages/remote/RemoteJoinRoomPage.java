@@ -38,7 +38,7 @@ public class RemoteJoinRoomPage extends RemoteBasePage {
 
     public void remoteJoinRoom(String roomId, String userId,Boolean ifPre) throws KiteTestException {
         PageFactory.initElements(remoteWebDriver, this);
-        remoteWebDriver.get(TalTest.apprtcURL);
+        remoteWebDriver.get(TalTest.remoteUrl);
         waitAround(500);
         if(ifPre){
             this.click(selectPreOnline);

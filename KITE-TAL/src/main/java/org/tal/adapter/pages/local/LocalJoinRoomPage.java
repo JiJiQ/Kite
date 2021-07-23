@@ -40,7 +40,7 @@ public class LocalJoinRoomPage extends BasePage {
     }
 
     public void localJoinRoom(String roomId, String userId,Boolean ifPre) throws KiteTestException {
-        this.webDriver.get(TalTest.apprtcURL);
+        this.webDriver.get(TalTest.localUrl);
         waitAround(1000);
         if(ifPre){
             this.click(selectPreOnline);
@@ -59,7 +59,7 @@ public class LocalJoinRoomPage extends BasePage {
         executeJsScript(this.webDriver, "window.scrollTo(0, document.body.scrollHeight)");
     }
     public void localJoinRoomNoPush(String roomId, String userId,String serverUrl,String debugOption) throws KiteTestException {
-        this.webDriver.get(TalTest.apprtcURL);
+        this.webDriver.get(TalTest.localUrl);
         waitAround(1000);
         this.click(selectPreOnline);
         webDriver.manage().window().maximize();
