@@ -69,13 +69,17 @@ public class LocalO2oRTCPage extends BasePage {
     }
 
     public void muteLocalVideo() throws KiteInteractionException {
+        TestUtils.waitAround(2000);
         this.click(muteLocalVideo);
+        TestUtils.waitAround(2000);
     }
     public void unmuteLocalVideo() throws KiteInteractionException {
         this.click(unmuteLocalVideo);
     }
     public void muteLocalAudio() throws KiteInteractionException {
+        TestUtils.waitAround(2000);
         this.click(muteLocalAudio);
+        TestUtils.waitAround(2000);
     }
     public void unmuteLocalAudio() throws KiteInteractionException {
         this.click(unmuteLocalAudio);
