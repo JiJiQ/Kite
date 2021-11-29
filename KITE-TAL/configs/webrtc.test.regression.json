@@ -4,7 +4,7 @@
   "grids": [
     {
       "type": "local",
-      "url": "http://10.73.85.63:4444/wd/hub"
+      "url": "http://10.14.155.46:4444/wd/hub"
     }
   ],
   "tests": [
@@ -15,7 +15,7 @@
     "testImpl": "org.tal.webrtc.tests.WebRtcNativeRtcTest",
     "csvReport": true,
     "payload": {
-      "url": "https://112-126-100-194.eaydu.com/index",
+      "url": "https://8-140-113-148.eaydu.com/index",
       "localServer": "8-140-113-148.eaydu.com",
       "remoteServer": "8-140-113-148.eaydu.com",
       "takeScreenshotForEachTest": true,
@@ -42,7 +42,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtcNativeVideoControlTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -69,7 +69,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtcQuitRecoveryNativeVideoTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -97,7 +97,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -124,7 +124,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1Test",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -152,7 +152,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -179,7 +179,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1MuteTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -207,7 +207,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -234,7 +234,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtc1v1KickTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -262,7 +262,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtcQuitRecoveryVideoTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -289,7 +289,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtcQuitRecoveryVideoTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -317,7 +317,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtcQuitRejoinTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "112-126-100-194.eaydu.com",
         "takeScreenshotForEachTest": true,
@@ -344,7 +344,7 @@
       "testImpl": "org.tal.webrtc.tests.WebRtcQuitRejoinTest",
       "csvReport": true,
       "payload": {
-        "url": "https://112-126-100-194.eaydu.com/index",
+        "url": "https://8-140-113-148.eaydu.com/index",
         "localServer": "8-140-113-148.eaydu.com",
         "remoteServer": "8-140-113-148.eaydu.com",
         "takeScreenshotForEachTest": true,
